@@ -8,12 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TrainingsTableViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
   var trainings = [Training]()
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
@@ -30,10 +30,10 @@ class ViewController: UIViewController {
     tableView.reloadData()
     
   }
-
- 
   
- let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-09-26&date_next=2016-10-10&date_start=2016-10-03&date_end=2016-10-09"
+  
+  
+  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-09-26&date_next=2016-10-10&date_start=2016-10-03&date_end=2016-10-09"
   
   
   func performRequest(_ stringURL: String) -> String? {
@@ -104,13 +104,13 @@ class ViewController: UIViewController {
     static let trainingCell = "TrainingCell"
     
   }
-
-
+  
+  
 }
 
 
 
-extension ViewController: UITableViewDataSource{
+extension TrainingsTableViewController: UITableViewDataSource{
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return trainings.count
