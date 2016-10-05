@@ -12,6 +12,9 @@
 		881104AE1CECB79400CE1758 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881104AC1CECB79400CE1758 /* Main.storyboard */; };
 		881104B01CECB79400CE1758 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 881104AF1CECB79400CE1758 /* Assets.xcassets */; };
 		881104B31CECB79400CE1758 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 881104B11CECB79400CE1758 /* LaunchScreen.storyboard */; };
+		881104BB1CECD9E000CE1758 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881104BA1CECD9E000CE1758 /* Training.swift */; };
+		881104C11CECDE7200CE1758 /* TrainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881104C01CECDE7200CE1758 /* TrainingCell.xib */; };
+		881104C31CECE03000CE1758 /* TrainingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881104C21CECE03000CE1758 /* TrainingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		881104AF1CECB79400CE1758 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		881104B21CECB79400CE1758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		881104B41CECB79400CE1758 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		881104BA1CECD9E000CE1758 /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
+		881104C01CECDE7200CE1758 /* TrainingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingCell.xib; sourceTree = "<group>"; };
+		881104C21CECE03000CE1758 /* TrainingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +66,9 @@
 				881104AF1CECB79400CE1758 /* Assets.xcassets */,
 				881104B11CECB79400CE1758 /* LaunchScreen.storyboard */,
 				881104B41CECB79400CE1758 /* Info.plist */,
+				881104BA1CECD9E000CE1758 /* Training.swift */,
+				881104C01CECDE7200CE1758 /* TrainingCell.xib */,
+				881104C21CECE03000CE1758 /* TrainingTableViewCell.swift */,
 			);
 			path = CrossfitStocznia;
 			sourceTree = "<group>";
@@ -91,12 +100,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Jakub;
 				TargetAttributes = {
 					881104A41CECB79400CE1758 = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = C8GDQ65SQ3;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -124,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				881104B31CECB79400CE1758 /* LaunchScreen.storyboard in Resources */,
+				881104C11CECDE7200CE1758 /* TrainingCell.xib in Resources */,
 				881104B01CECB79400CE1758 /* Assets.xcassets in Resources */,
 				881104AE1CECB79400CE1758 /* Main.storyboard in Resources */,
 			);
@@ -137,6 +148,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				881104AB1CECB79400CE1758 /* ViewController.swift in Sources */,
+				881104C31CECE03000CE1758 /* TrainingTableViewCell.swift in Sources */,
+				881104BB1CECD9E000CE1758 /* Training.swift in Sources */,
 				881104A91CECB79400CE1758 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -177,8 +190,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -222,8 +237,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -242,6 +259,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -254,6 +272,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jakub.CrossfitStocznia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -265,6 +284,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jakub.CrossfitStocznia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -287,6 +307,7 @@
 				881104B91CECB79400CE1758 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
