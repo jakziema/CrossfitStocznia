@@ -33,7 +33,7 @@ class ViewController: UIViewController {
 
  
   
- let calendarURL = "http://crossfitstocznia.rezervante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-05-09&date_next=2016-05-23&date_start=2016-05-16&date_end=2016-05-22"
+ let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-09-26&date_next=2016-10-10&date_start=2016-10-03&date_end=2016-10-09"
   
   
   func performRequest(_ stringURL: String) -> String? {
@@ -98,27 +98,7 @@ class ViewController: UIViewController {
     
   }
   
-  func hexStringToUIColor (_ hex:String) -> UIColor {
-    var cString:String = hex.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet() as NSCharacterSet).uppercased()
-    
-    if (cString.hasPrefix("#")) {
-      cString = cString.substring(from: cString.characters.index(cString.startIndex, offsetBy: 1))
-    }
-    
-    if ((cString.characters.count) != 6) {
-      return UIColor.gray
-    }
-    
-    var rgbValue:UInt32 = 0
-    Scanner(string: cString).scanHexInt32(&rgbValue)
-    
-    return UIColor(
-      red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-      green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-      blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-      alpha: CGFloat(1.0)
-    )
-  }
+  
   
   struct TableViewCellIdentifiers {
     static let trainingCell = "TrainingCell"
@@ -141,12 +121,33 @@ extension ViewController: UITableViewDataSource{
     let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.trainingCell, for: indexPath) as! TrainingTableViewCell
     let training = trainings[(indexPath as NSIndexPath).row]
     cell.trainingNameLabel.text = training.title
-    cell.backgroundColor = hexStringToUIColor(training.bgColor) 
+    cell.backgroundColor = UIColor(hexString: training.bgColor)
     cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
+    cell.dateLabel.text = "Data: " + training.date
     
     return cell
     
     
+  }
+}
+
+extension UIColor {
+  convenience init(hexString: String) {
+    let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+    var int = UInt32()
+    Scanner(string: hex).scanHexInt32(&int)
+    let a, r, g, b: UInt32
+    switch hex.characters.count {
+    case 3: // RGB (12-bit)
+      (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+    case 6: // RGB (24-bit)
+      (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+    case 8: // ARGB (32-bit)
+      (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+    default:
+      (a, r, g, b) = (255, 0, 0, 0)
+    }
+    self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
   }
 }
 

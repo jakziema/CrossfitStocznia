@@ -15,6 +15,9 @@
 		881104BB1CECD9E000CE1758 /* Training.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881104BA1CECD9E000CE1758 /* Training.swift */; };
 		881104C11CECDE7200CE1758 /* TrainingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 881104C01CECDE7200CE1758 /* TrainingCell.xib */; };
 		881104C31CECE03000CE1758 /* TrainingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881104C21CECE03000CE1758 /* TrainingTableViewCell.swift */; };
+		88485DF01DA4FFF0008B0BA4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DEF1DA4FFF0008B0BA4 /* LoginViewController.swift */; };
+		88485DF21DA507A5008B0BA4 /* logo-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 88485DF11DA507A5008B0BA4 /* logo-red.png */; };
+		88485DF41DA508E0008B0BA4 /* stocznia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88485DF31DA508E0008B0BA4 /* stocznia.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		881104BA1CECD9E000CE1758 /* Training.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Training.swift; sourceTree = "<group>"; };
 		881104C01CECDE7200CE1758 /* TrainingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrainingCell.xib; sourceTree = "<group>"; };
 		881104C21CECE03000CE1758 /* TrainingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingTableViewCell.swift; sourceTree = "<group>"; };
+		88485DEF1DA4FFF0008B0BA4 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		88485DF11DA507A5008B0BA4 /* logo-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-red.png"; sourceTree = "<group>"; };
+		88485DF31DA508E0008B0BA4 /* stocznia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stocznia.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,10 +71,13 @@
 				881104AC1CECB79400CE1758 /* Main.storyboard */,
 				881104AF1CECB79400CE1758 /* Assets.xcassets */,
 				881104B11CECB79400CE1758 /* LaunchScreen.storyboard */,
+				88485DF11DA507A5008B0BA4 /* logo-red.png */,
 				881104B41CECB79400CE1758 /* Info.plist */,
+				88485DF31DA508E0008B0BA4 /* stocznia.jpg */,
 				881104BA1CECD9E000CE1758 /* Training.swift */,
 				881104C01CECDE7200CE1758 /* TrainingCell.xib */,
 				881104C21CECE03000CE1758 /* TrainingTableViewCell.swift */,
+				88485DEF1DA4FFF0008B0BA4 /* LoginViewController.swift */,
 			);
 			path = CrossfitStocznia;
 			sourceTree = "<group>";
@@ -134,8 +143,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				881104B31CECB79400CE1758 /* LaunchScreen.storyboard in Resources */,
+				88485DF21DA507A5008B0BA4 /* logo-red.png in Resources */,
 				881104C11CECDE7200CE1758 /* TrainingCell.xib in Resources */,
 				881104B01CECB79400CE1758 /* Assets.xcassets in Resources */,
+				88485DF41DA508E0008B0BA4 /* stocznia.jpg in Resources */,
 				881104AE1CECB79400CE1758 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,6 +161,7 @@
 				881104AB1CECB79400CE1758 /* ViewController.swift in Sources */,
 				881104C31CECE03000CE1758 /* TrainingTableViewCell.swift in Sources */,
 				881104BB1CECD9E000CE1758 /* Training.swift in Sources */,
+				88485DF01DA4FFF0008B0BA4 /* LoginViewController.swift in Sources */,
 				881104A91CECB79400CE1758 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
