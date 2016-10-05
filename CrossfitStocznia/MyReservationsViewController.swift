@@ -64,6 +64,15 @@ class MyReservationsViewController: UIViewController {
     
   }
   
+  func loginError(contentOfUrl: String) {
+    if contentOfUrl.contains("Niepoprawny adres email lub hasło") {
+      let alert = UIAlertController(title: "Error", message: "Błędny email lub hasło", preferredStyle: .alert)
+      let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+      alert.addAction(alertAction)
+      present(alert, animated: true, completion: nil)
+    }
+  }
+  
   
   
 
