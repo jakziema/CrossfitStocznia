@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4tP-vn-kcP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -63,45 +63,94 @@
             </objects>
             <point key="canvasLocation" x="-307.5" y="371.83098591549299"/>
         </scene>
-        <!--Trainings Table View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Item 2-->
+        <scene sceneID="57h-Wb-lk9">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="TrainingsTableViewController" customModule="CrossfitStocznia" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="SO1-vH-qpd" customClass="MyReservationsViewController" customModule="CrossfitStocznia" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="h94-8J-qC6"/>
+                        <viewControllerLayoutGuide type="bottom" id="8RN-6o-orf"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="pcE-Ta-8bG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m5f-EQ-FYx">
+                                <frame key="frameInset" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="7Cz-lS-LaV"/>
+                    <connections>
+                        <outlet property="myReservationsWebView" destination="m5f-EQ-FYx" id="NE9-55-ccd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Erh-VA-N0H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1340.625" y="711.97183098591552"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="QNy-m2-q5b">
+            <objects>
+                <viewController id="L6P-qQ-bX8" customClass="TrainingsTableViewController" customModule="CrossfitStocznia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lk2-6z-MbV"/>
+                        <viewControllerLayoutGuide type="bottom" id="DaB-TX-cY8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I4n-9y-bn0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qNJ-92-2XU">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="LY6-Wf-1UZ"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rNv-LD-Z3V"/>
+                                    <outlet property="dataSource" destination="L6P-qQ-bX8" id="284-jy-VcH"/>
+                                    <outlet property="delegate" destination="L6P-qQ-bX8" id="p5B-sE-nkp"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qNJ-92-2XU" secondAttribute="bottom" id="Kqr-e1-tpE"/>
-                            <constraint firstItem="qNJ-92-2XU" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Mtb-yV-bwo"/>
-                            <constraint firstItem="qNJ-92-2XU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Owy-9A-54x"/>
-                            <constraint firstAttribute="trailing" secondItem="qNJ-92-2XU" secondAttribute="trailing" id="vOJ-v6-KTp"/>
+                            <constraint firstItem="qNJ-92-2XU" firstAttribute="top" secondItem="I4n-9y-bn0" secondAttribute="top" id="2r6-as-0jB"/>
+                            <constraint firstAttribute="bottom" secondItem="qNJ-92-2XU" secondAttribute="bottom" constant="49" id="62b-1v-RNM"/>
+                            <constraint firstItem="qNJ-92-2XU" firstAttribute="leading" secondItem="I4n-9y-bn0" secondAttribute="leading" id="LAv-cu-Sea"/>
+                            <constraint firstAttribute="trailing" secondItem="qNJ-92-2XU" secondAttribute="trailing" id="fJF-FJ-Hiv"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="cdv-4V-ykt"/>
                     <connections>
-                        <outlet property="tableView" destination="qNJ-92-2XU" id="FbG-Xm-Vk2"/>
+                        <outlet property="tableView" destination="qNJ-92-2XU" id="opn-4w-TcU"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9QG-25-kaD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="429.375" y="368.66197183098592"/>
+            <point key="canvasLocation" x="1340.625" y="47.535211267605632"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="GOj-Bm-W4z">
+            <objects>
+                <tabBarController id="svR-bZ-cNW" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="oa2-gx-MBv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="L6P-qQ-bX8" kind="relationship" relationship="viewControllers" id="QST-K7-7BN"/>
+                        <segue destination="SO1-vH-qpd" kind="relationship" relationship="viewControllers" id="17y-ce-s2N"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xc8-C7-Ptf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444" y="385"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo-red.png" width="256" height="150"/>
         <image name="stocznia.jpg" width="1619" height="1080"/>
     </resources>
+    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
 </document>

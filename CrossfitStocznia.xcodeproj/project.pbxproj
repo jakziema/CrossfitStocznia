@@ -18,6 +18,8 @@
 		88485DF21DA507A5008B0BA4 /* logo-red.png in Resources */ = {isa = PBXBuildFile; fileRef = 88485DF11DA507A5008B0BA4 /* logo-red.png */; };
 		88485DF41DA508E0008B0BA4 /* stocznia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88485DF31DA508E0008B0BA4 /* stocznia.jpg */; };
 		88485DFA1DA52D58008B0BA4 /* TrainingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DF91DA52D58008B0BA4 /* TrainingsTableViewController.swift */; };
+		88485DFC1DA53109008B0BA4 /* MyReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */; };
+		88485DFE1DA54B78008B0BA4 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DFD1DA54B78008B0BA4 /* HttpManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		88485DF11DA507A5008B0BA4 /* logo-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-red.png"; sourceTree = "<group>"; };
 		88485DF31DA508E0008B0BA4 /* stocznia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stocznia.jpg; sourceTree = "<group>"; };
 		88485DF91DA52D58008B0BA4 /* TrainingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingsTableViewController.swift; sourceTree = "<group>"; };
+		88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReservationsViewController.swift; sourceTree = "<group>"; };
+		88485DFD1DA54B78008B0BA4 /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,8 @@
 				881104C21CECE03000CE1758 /* TrainingTableViewCell.swift */,
 				88485DEF1DA4FFF0008B0BA4 /* LoginViewController.swift */,
 				88485DF91DA52D58008B0BA4 /* TrainingsTableViewController.swift */,
+				88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */,
+				88485DFD1DA54B78008B0BA4 /* HttpManager.swift */,
 			);
 			path = CrossfitStocznia;
 			sourceTree = "<group>";
@@ -159,6 +165,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				881104C31CECE03000CE1758 /* TrainingTableViewCell.swift in Sources */,
+				88485DFE1DA54B78008B0BA4 /* HttpManager.swift in Sources */,
+				88485DFC1DA53109008B0BA4 /* MyReservationsViewController.swift in Sources */,
 				881104BB1CECD9E000CE1758 /* Training.swift in Sources */,
 				88485DF01DA4FFF0008B0BA4 /* LoginViewController.swift in Sources */,
 				881104A91CECB79400CE1758 /* AppDelegate.swift in Sources */,
