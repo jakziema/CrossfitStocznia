@@ -20,9 +20,11 @@
 		88485DFC1DA53109008B0BA4 /* MyReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */; };
 		88485DFE1DA54B78008B0BA4 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DFD1DA54B78008B0BA4 /* HttpManager.swift */; };
 		8874F9621DA67B9C00669E78 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */; };
+		E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CrossfitStocznia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		881104A51CECB79400CE1758 /* CrossfitStocznia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrossfitStocznia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		881104A81CECB79400CE1758 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		881104AD1CECB79400CE1758 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +40,8 @@
 		88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReservationsViewController.swift; sourceTree = "<group>"; };
 		88485DFD1DA54B78008B0BA4 /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.release.xcconfig"; sourceTree = "<group>"; };
+		F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +61,8 @@
 			children = (
 				881104A71CECB79400CE1758 /* CrossfitStocznia */,
 				881104A61CECB79400CE1758 /* Products */,
+				B193EB847BAB322093CA45AF /* Pods */,
+				EC1BB64F85A1656A014D14AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,6 +95,23 @@
 			path = CrossfitStocznia;
 			sourceTree = "<group>";
 		};
+		B193EB847BAB322093CA45AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */,
+				E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC1BB64F85A1656A014D14AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +119,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 881104B71CECB79400CE1758 /* Build configuration list for PBXNativeTarget "CrossfitStocznia" */;
 			buildPhases = (
+				46612B31FF84818C091ED1F4 /* [CP] Check Pods Manifest.lock */,
 				881104A11CECB79400CE1758 /* Sources */,
 				881104A21CECB79400CE1758 /* Frameworks */,
 				881104A31CECB79400CE1758 /* Resources */,
+				7B6192AABF11A61C2457CE2C /* [CP] Embed Pods Frameworks */,
+				9D7BBCBC88C9FCD7D8D665E3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -158,6 +185,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		46612B31FF84818C091ED1F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7B6192AABF11A61C2457CE2C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D7BBCBC88C9FCD7D8D665E3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		881104A11CECB79400CE1758 /* Sources */ = {
@@ -286,6 +361,7 @@
 		};
 		881104B81CECB79400CE1758 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CrossfitStocznia/Info.plist;
@@ -298,6 +374,7 @@
 		};
 		881104B91CECB79400CE1758 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CrossfitStocznia/Info.plist;

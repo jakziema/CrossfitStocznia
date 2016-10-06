@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyXMLParser
 
 class MyReservationsViewController: UIViewController {
   
@@ -29,7 +30,18 @@ class MyReservationsViewController: UIViewController {
       
       do {
         let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
-        print("HTML : \(myHTMLString)")
+        let xml = try! XML.parse(myHTMLString)
+        
+        
+        if let  lowerBound = myHTMLString.range(of: "Archiwum rezerwacji") {
+          if let upperBound = myHTMLString.range(of: "Aktualne rezerwacje") {
+            let result = myHTMLString.substring(to: lowerBound.lowerBound)
+            let result2 = result.substring(from: upperBound.upperBound)
+            print(result2)
+          }
+          
+        }
+        
       } catch let error {
         print("Error: \(error)")
       }
@@ -40,6 +52,11 @@ class MyReservationsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+  
+  
+  func parseHTML(html: String) {
+    
+  }
   
   
   
