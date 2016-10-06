@@ -17,10 +17,10 @@ class LoginViewController: UIViewController {
   var crossfitStoczniAuth = "http://crossfitstocznia.reservante.pl/auth"
   
   @IBAction func login() {
-    httpManager.loginWithParameters(email: loginTextField.text!, password: passwordTextField.text!, urlString: crossfitStoczniAuth)
+    //httpManager.loginWithParameters(email: loginTextField.text!, password: passwordTextField.text!, urlString: crossfitStoczniAuth)
+     httpManager.loginWithParameters2(email: loginTextField.text!, password: passwordTextField.text!, urlString: crossfitStoczniAuth)
+  
   }
-  
-  
   
   
 

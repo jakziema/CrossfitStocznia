@@ -7,14 +7,16 @@
 //
 
 import Foundation
+import UIKit
 
-class HttpManager {
+class HttpManager  {
   
   
   
-  func loginWithParameters(email: String, password: String, urlString: String) {
+  func loginWithParameters(email: String, password: String, urlString: String)  {
     let url:URL = URL(string: urlString)!
     let session = URLSession.shared
+    
     
     let request = NSMutableURLRequest(url: url)
     request.httpMethod = "POST"
@@ -23,10 +25,8 @@ class HttpManager {
     let paramString = "email="+email+"&password="+password+"&submit_login= "
     request.httpBody = paramString.data(using: String.Encoding.utf8)
     
-    
     let task = session.downloadTask(with: request as URLRequest, completionHandler: {
-      (
-      location, response, error) in
+      (location, response, error) in
       
       guard let _:URL = location, let _:URLResponse = response  , error == nil else {
         print("error")
@@ -35,16 +35,82 @@ class HttpManager {
       
       let urlContents = try! NSString(contentsOf: location!, encoding: String.Encoding.utf8.rawValue)
       
+
+      
+      
       guard let _:NSString = urlContents else {
         print("error")
         return
       }
       
-      print(urlContents)
-      
     })
     task.resume()
+   
     
   }
+  
+  func loginWithParameters2(email:String, password: String, urlString: String) {
+    let myUrl = URL(string: urlString);
+    
+    var content: String = ""
+    
+    var request = URLRequest(url:myUrl!)
+    
+    request.httpMethod = "POST"// Compose a query string
+    
+    let postString = "email="+email + "&password=" + password + "&submit_login= ";
+    
+    request.httpBody = postString.data(using: String.Encoding.utf8);
+    
+    let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?)  in
+      
+      if error != nil
+      {
+        print("error=\(error)")
+        return
+      }
+      
+      
+      //print("response = \(response)")
+      
+      //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
+      
+      content = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
+      
+
+      
+      
+    }
+    task.resume()
+    
+    
+  }
+  
 
 }
+
+extension UIColor {
+  convenience init(hexString: String) {
+    let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
+    var int = UInt32()
+    Scanner(string: hex).scanHexInt32(&int)
+    let a, r, g, b: UInt32
+    switch hex.characters.count {
+    case 3: // RGB (12-bit)
+      (a, r, g, b) = (255, (int >> 8) * 17, (int >> 4 & 0xF) * 17, (int & 0xF) * 17)
+    case 6: // RGB (24-bit)
+      (a, r, g, b) = (255, int >> 16, int >> 8 & 0xFF, int & 0xFF)
+    case 8: // ARGB (32-bit)
+      (a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
+    default:
+      (a, r, g, b) = (255, 0, 0, 0)
+    }
+    self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: CGFloat(a) / 255)
+  }
+}
+
+
+
+
+
+

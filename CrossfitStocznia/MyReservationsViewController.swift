@@ -10,14 +10,13 @@ import UIKit
 
 class MyReservationsViewController: UIViewController {
   
-  @IBOutlet weak var myReservationsWebView: UIWebView!
+  
   
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
       
-      download_request()
   
       
     }
@@ -27,51 +26,9 @@ class MyReservationsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
   
-  func download_request()
-  {
-    let url:URL = URL(string: "http://crossfitstocznia.reservante.pl/auth")!
-    let session = URLSession.shared
-    
-    let request = NSMutableURLRequest(url: url)
-    request.httpMethod = "POST"
-    request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
-    
-    let paramString = "email="+"ziemannjakub@gmail.com"+"&password="+"Tczew22011994"+"&submit_login= "
-    request.httpBody = paramString.data(using: String.Encoding.utf8)
-    
-    
-    let task = session.downloadTask(with: request as URLRequest, completionHandler: {
-      (
-      location, response, error) in
-      
-      guard let _:URL = location, let _:URLResponse = response  , error == nil else {
-        print("error")
-        return
-      }
-      
-      let urlContents = try! NSString(contentsOf: location!, encoding: String.Encoding.utf8.rawValue)
-      
-      guard let _:NSString = urlContents else {
-        print("error")
-        return
-      }
-      
-      print(urlContents)
-      let url2 = location!
-      self.myReservationsWebView.loadRequest(URLRequest(url: url2))
-    })
-    task.resume()
-    
-  }
   
-  func loginError(contentOfUrl: String) {
-    if contentOfUrl.contains("Niepoprawny adres email lub hasło") {
-      let alert = UIAlertController(title: "Error", message: "Błędny email lub hasło", preferredStyle: .alert)
-      let alertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-      alert.addAction(alertAction)
-      present(alert, animated: true, completion: nil)
-    }
-  }
+  
+  
   
   
   
