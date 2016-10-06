@@ -49,10 +49,10 @@ class HttpManager  {
     
   }
   
-  func loginWithParameters2(email:String, password: String, urlString: String) {
+  func loginWithParameters2(email:String, password: String, urlString: String, completionHandler: @escaping (_ content: String) -> ())  {
     let myUrl = URL(string: urlString);
     
-    var content: String = ""
+    
     
     var request = URLRequest(url:myUrl!)
     
@@ -70,20 +70,18 @@ class HttpManager  {
         return
       }
       
-      
       //print("response = \(response)")
       
       //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
       
-      content = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
-      
+      let content2 = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
+      completionHandler(content2)
 
-      
-      
     }
     task.resume()
     
-    
+   
+   
   }
   
 

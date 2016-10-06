@@ -18,7 +18,30 @@ class LoginViewController: UIViewController {
   
   @IBAction func login() {
     //httpManager.loginWithParameters(email: loginTextField.text!, password: passwordTextField.text!, urlString: crossfitStoczniAuth)
-     httpManager.loginWithParameters2(email: loginTextField.text!, password: passwordTextField.text!, urlString: crossfitStoczniAuth)
+    httpManager.loginWithParameters2(email: loginTextField.text!, password: passwordTextField.text!, urlString: crossfitStoczniAuth){content in
+      if content.contains("Niepoprawny") {
+        
+        print(Thread.isMainThread)
+        
+        let alertController = UIAlertController(title: "Error", message: "Niepoprawny login lub hasło", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.present(alertController, animated: true, completion: nil)
+        }
+        
+      } else {
+        print("SUKCES!!!!")
+        
+        print(Thread.isMainThread)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+          self.performSegue(withIdentifier: "toTrainingsTable", sender: self)
+        }
+        
+        
+      }
+    }
+     
   
   }
   

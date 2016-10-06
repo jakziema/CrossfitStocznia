@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="x9V-cb-uco">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="4tP-vn-kcP">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -57,6 +57,7 @@
                     <connections>
                         <outlet property="loginTextField" destination="10x-wA-6Mh" id="KGe-fh-EfE"/>
                         <outlet property="passwordTextField" destination="Uj5-nR-aHH" id="EB2-1i-uCU"/>
+                        <segue destination="x9V-cb-uco" kind="showDetail" identifier="toTrainingsTable" id="f2H-fs-bV9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5y-gf-9EK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,7 +111,7 @@
             </objects>
             <point key="canvasLocation" x="529" y="372"/>
         </scene>
-        <!--Moje rezerwacje-->
+        <!--My Reservations View Controller-->
         <scene sceneID="gaG-vl-xSq">
             <objects>
                 <viewController id="Obo-I5-UQS" customClass="MyReservationsViewController" customModule="CrossfitStocznia" customModuleProvider="target" sceneMemberID="viewController">
@@ -121,19 +122,29 @@
                     <view key="view" contentMode="scaleToFill" id="9pl-lI-Ksv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PbE-7Y-3Am">
+                                <frame key="frameInset" width="320" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Moje rezerwacje" id="vmf-0i-i4x"/>
+                    <tabBarItem key="tabBarItem" tag="1" systemItem="bookmarks" id="vmf-0i-i4x"/>
+                    <connections>
+                        <outlet property="webView" destination="PbE-7Y-3Am" id="QKX-NZ-B7I"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ww6-7r-iXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1427" y="1216"/>
+            <point key="canvasLocation" x="1426.875" y="1215.8450704225352"/>
         </scene>
-        <!--Plan-->
+        <!--Navigation Controller-->
         <scene sceneID="jjb-eM-2Op">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1GU-jO-Jq0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Plan" id="aNu-E3-fp1"/>
+                    <tabBarItem key="tabBarItem" systemItem="topRated" id="aNu-E3-fp1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="19d-P4-VjC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
