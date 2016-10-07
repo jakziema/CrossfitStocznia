@@ -4,6 +4,5 @@
 use_frameworks!
 
 target 'CrossfitStocznia' do
-   pod 'SwiftyXMLParser', '~> 3.0'
-
+   pod 'HTMLReader', '~> 2.0'
 end

@@ -19,6 +19,7 @@
 		88485DF41DA508E0008B0BA4 /* stocznia.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 88485DF31DA508E0008B0BA4 /* stocznia.jpg */; };
 		88485DFC1DA53109008B0BA4 /* MyReservationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */; };
 		88485DFE1DA54B78008B0BA4 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DFD1DA54B78008B0BA4 /* HttpManager.swift */; };
+		88738BF71DA7B9D0008C8AAC /* ParsedTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */; };
 		8874F9621DA67B9C00669E78 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */; };
 		E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */; };
 /* End PBXBuildFile section */
@@ -39,6 +40,7 @@
 		88485DF31DA508E0008B0BA4 /* stocznia.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stocznia.jpg; sourceTree = "<group>"; };
 		88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyReservationsViewController.swift; sourceTree = "<group>"; };
 		88485DFD1DA54B78008B0BA4 /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedTraining.swift; sourceTree = "<group>"; };
 		8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
 		E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.release.xcconfig"; sourceTree = "<group>"; };
 		F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.debug.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */,
 				88485DFD1DA54B78008B0BA4 /* HttpManager.swift */,
 				8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */,
+				88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */,
 			);
 			path = CrossfitStocznia;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 				8874F9621DA67B9C00669E78 /* ScheduleTableViewController.swift in Sources */,
 				881104C31CECE03000CE1758 /* TrainingTableViewCell.swift in Sources */,
 				88485DFE1DA54B78008B0BA4 /* HttpManager.swift in Sources */,
+				88738BF71DA7B9D0008C8AAC /* ParsedTraining.swift in Sources */,
 				88485DFC1DA53109008B0BA4 /* MyReservationsViewController.swift in Sources */,
 				881104BB1CECD9E000CE1758 /* Training.swift in Sources */,
 				88485DF01DA4FFF0008B0BA4 /* LoginViewController.swift in Sources */,

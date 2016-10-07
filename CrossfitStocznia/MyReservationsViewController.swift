@@ -7,9 +7,11 @@
 //
 
 import UIKit
-import SwiftyXMLParser
+import HTMLReader
 
 class MyReservationsViewController: UIViewController {
+  
+  var myReservations = [ParsedTraining]()
   
   @IBOutlet weak var webView: UIWebView!
   
@@ -29,15 +31,20 @@ class MyReservationsViewController: UIViewController {
       }
       
       do {
-        let myHTMLString = try String(contentsOf: myURL, encoding: .ascii)
-        let xml = try! XML.parse(myHTMLString)
+        let myHTMLString = try String(contentsOf: myURL, encoding: .utf8).trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         
         
-        if let  lowerBound = myHTMLString.range(of: "Archiwum rezerwacji") {
-          if let upperBound = myHTMLString.range(of: "Aktualne rezerwacje") {
+        
+        if let  lowerBound = myHTMLString.range(of: "<h2>Archiwum rezerwacji") {
+          if let upperBound = myHTMLString.range(of: "Aktualne rezerwacje</h2>") {
             let result = myHTMLString.substring(to: lowerBound.lowerBound)
             let result2 = result.substring(from: upperBound.upperBound)
-            print(result2)
+            //print(result2)
+            parseHTML(html: result2)
+            
+            
+            
+            
           }
           
         }
@@ -55,7 +62,13 @@ class MyReservationsViewController: UIViewController {
   
   
   func parseHTML(html: String) {
-    
+    let htmlDocument = HTMLDocument(string: html)
+    for node in htmlDocument.nodes(matchingSelector: "table tbody tr td a ").dropFirst() {
+      let link = node.attributes
+      //print(link["href"]!)
+      let linkToReservations = "http://crossfitstocznia.reservante.pl" + link["href"]!
+      print(linkToReservations)
+          }
   }
   
   

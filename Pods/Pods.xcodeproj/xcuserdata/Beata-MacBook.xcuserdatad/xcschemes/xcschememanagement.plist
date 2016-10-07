@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-CrossfitStocznia.xcscheme</key>
+		<key>HTMLReader.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftyXMLParser.xcscheme</key>
+		<key>Pods-CrossfitStocznia.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -17,12 +17,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>6585E7AA9442B40BF30FEF1F9002594E</key>
+		<key>35AB4E645558A256E1C06F38C71F4836</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4DC5466F635CA009488EF37726BA992</key>
+		<key>D64EC521805080B7FEDADB97B142A5A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

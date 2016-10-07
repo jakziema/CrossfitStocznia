@@ -1,12 +1,12 @@
 PODS:
-  - SwiftyXMLParser (3.0.0)
+  - HTMLReader (2.0)
 
 DEPENDENCIES:
-  - SwiftyXMLParser (~> 3.0)
+  - HTMLReader (~> 2.0)
 
 SPEC CHECKSUMS:
-  SwiftyXMLParser: 8d2295fb4fbc6e2ff241e7c8d7717e159be35969
+  HTMLReader: 7fbf32ddfcbcdfeba0833713e4545d1862aeb07c
 
-PODFILE CHECKSUM: 9d53f02f25346e26fc5bc2082f720811e0ec104c
+PODFILE CHECKSUM: 0862848d72bea4207f39bf44b56e3ea61f8fe6fc
 
 COCOAPODS: 1.0.1

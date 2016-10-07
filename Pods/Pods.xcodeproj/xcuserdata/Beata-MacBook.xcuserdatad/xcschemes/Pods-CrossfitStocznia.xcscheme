@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E4DC5466F635CA009488EF37726BA992"
+               BlueprintIdentifier = "D64EC521805080B7FEDADB97B142A5A5"
                BuildableName = "Pods_CrossfitStocznia.framework"
                BlueprintName = "Pods-CrossfitStocznia"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "E4DC5466F635CA009488EF37726BA992"
+            BlueprintIdentifier = "D64EC521805080B7FEDADB97B142A5A5"
             BuildableName = "Pods_CrossfitStocznia.framework"
             BlueprintName = "Pods-CrossfitStocznia"
             ReferencedContainer = "container:Pods.xcodeproj">
