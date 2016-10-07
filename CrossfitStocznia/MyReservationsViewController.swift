@@ -18,43 +18,17 @@ class MyReservationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-      
-      
-      
-     
-      
-      let myURLString = "http://crossfitstocznia.reservante.pl/client/orders"
-      guard let myURL = URL(string: myURLString) else {
-        print("Error: \(myURLString) doesn't seem to be a valid URL")
-        return
-      }
-      
-      do {
-        let myHTMLString = try String(contentsOf: myURL, encoding: .utf8).trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-        
-        
-        
-        if let  lowerBound = myHTMLString.range(of: "<h2>Archiwum rezerwacji") {
-          if let upperBound = myHTMLString.range(of: "Aktualne rezerwacje</h2>") {
-            let result = myHTMLString.substring(to: lowerBound.lowerBound)
-            let result2 = result.substring(from: upperBound.upperBound)
-            //print(result2)
-            parseHTML(html: result2)
-            
-            
-            
-            
-          }
-          
-        }
-        
-      } catch let error {
-        print("Error: \(error)")
-      }
+      let myHTMLString = getContent(ofHTML: "http://crossfitstocznia.reservante.pl/client/orders").trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+      if let  lowerBound = myHTMLString.range(of: "<h2>Archiwum rezerwacji") {
+        if let upperBound = myHTMLString.range(of: "Aktualne rezerwacje</h2>") {
+          let result = myHTMLString.substring(to: lowerBound.lowerBound)
+          let result2 = result.substring(from: upperBound.upperBound)
+          //print(result2)
+          parseHTML(html: result2)
       
     }
-
+      }
+  }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -74,7 +48,15 @@ class MyReservationsViewController: UIViewController {
   
   
   
-  
+  func getContent(ofHTML urlString: String) -> String {
+    do  {
+      
+      let htmlString = try String(contentsOf: URL(string: urlString)!, encoding: .utf8)
+      return htmlString
+    } catch let error {
+      return "Error: \(error)"
+    }
+  }
   
   
 
