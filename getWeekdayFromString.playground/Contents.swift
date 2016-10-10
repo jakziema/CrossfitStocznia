@@ -5,44 +5,23 @@ import UIKit
 var str = "Hello, playground"
 
 
-  func getNameOfTheWeekFrom(dateAsString date: String) -> String? {
-    let formatter  = DateFormatter()
-    formatter.dateFormat = "yyyy-MM-dd"
-    
-    if let stringAsDate = formatter.date(from: date.capitalized(with: NSLocale.current)) {
-      let nameOfTheWeekFormatter = DateFormatter()
-      nameOfTheWeekFormatter.dateFormat = "EEEE"
-      return nameOfTheWeekFormatter.string(from: stringAsDate)
-      
-    } else {
-      return nil
-    }
-  }
-print(getNameOfTheWeekFrom(dateAsString: "2016-10-10")!)
+
+var test = "Class 1+2 (adfdafs)"
 
 
-func getDayOfWeek(_ today:String) -> String? {
-  let weekdays = [
-    "Niedziela",
-    "Poniedziałek",
-    "Wtorek",
-    "Środa",
-    "Czwartek",
-    "Piątek",
-    "Sobota"
-  ]
+if let match = test.range(of: "\\((.*?)\\)", options: .regularExpression) {
+  print(test.substring(with: match))
   
-  let formatter  = DateFormatter()
-  formatter.dateFormat = "yyyy-MM-dd"
-  if let todayDate = formatter.date(from: today) {
-    let myCalendar = Calendar(identifier: .gregorian)
-    let weekDay = myCalendar.component(.weekday, from: todayDate)
-     return weekdays[weekDay - 1]
-  } else {
-    return nil
+}
+
+func deleteName(ofTheCoach text: String) -> String {
+  
+  if let range = text.range(of: "(") {
+    var title = text.substring(to: range.lowerBound)
+    return title
   }
 }
 
-print(getDayOfWeek("10-11-2016"))
+print(deleteName(ofTheCoach: test))
 
 

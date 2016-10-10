@@ -18,7 +18,7 @@ class ScheduleTableViewController: UITableViewController {
         super.viewDidLoad()
       
  
-        tableView.contentInset = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = 80
         
         let cellNib = UINib(nibName: TableViewCellIdentifiers.trainingCell, bundle: nil)
@@ -63,22 +63,20 @@ class ScheduleTableViewController: UITableViewController {
     for dictionary in array{
       
       let training = Training()
-      let name = dictionary["title"] as! String
+      let title  = dictionary["title"] as! String
       let hour = dictionary["hour"] as! String
       let date = dictionary["date"] as! String
-      let dateID = dictionary["date_id"] as! String
-      let freePlaces = dictionary["places"] as! Int
-      let bgColor = dictionary["bg"] as! String
-      
-      training.title = name
-      training.hour = hour
+      training.dateID  = dictionary["date_id"] as! String
+      training.placesLeft = dictionary["places"] as! Int
+      training.bgColor = dictionary["bg"] as! String
+      training.hour = hour.substring(to: "17:00:00".index("17:00:00".endIndex, offsetBy: -3))
+      //print(training.hour)1
+      training.titleWithName = title
+      training.title = deleteName(ofTheCoach: title)
+      training.coachName = getName(OfTheCoach: title)
       training.date = date
-      training.dateID = dateID
-      training.placesLeft = freePlaces
-      training.bgColor = bgColor
       training.nameOfTheWeek = getNameOfTheWeekFrom(dateAsString: date)!
       
-      print(training.placesLeft)
       
       trainings.append(training)
       
@@ -128,13 +126,43 @@ class ScheduleTableViewController: UITableViewController {
 
     }
   
-  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    <#code#>
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    tableView.deselectRow(at: indexPath, animated: true)
+    performSegue(withIdentifier: "ShowDetail", sender: indexPath)
   }
  
-
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "ShowDetail" {
+      let detailViewController = segue.destination as! DetailViewController
+      let indexPath = sender as! IndexPath
+      let tappedCell = trainings[indexPath.row]
+      detailViewController.training = tappedCell
+      
+    }
+  }
 
 }
+
+func getName(OfTheCoach text: String) -> String {
+  var name = ""
+  if let match = text.range(of: "(?<=\\()[^()]{1,10}(?=\\))", options: .regularExpression) {
+    name =  text.substring(with: match)
+    
+  }
+  
+  return name
+}
+
+func deleteName(ofTheCoach text: String) -> String {
+  var title = ""
+  if let range = text.range(of: "(") {
+    title =  text.substring(to: range.lowerBound)
+  }
+  
+  return title
+}
+
+
 
 
   func getNameOfTheWeekFrom(dateAsString date: String) -> String? {

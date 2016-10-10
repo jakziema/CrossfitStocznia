@@ -88,6 +88,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="L26-OM-2dq"/>
+                    <connections>
+                        <segue destination="P3N-5A-cK8" kind="presentation" identifier="ShowDetail" id="3f0-w4-Dhw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tRy-ct-jmH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -110,6 +113,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DTY-Pw-nX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="529" y="372"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="khN-hw-w4r">
+            <objects>
+                <viewController id="P3N-5A-cK8" customClass="DetailViewController" customModule="CrossfitStocznia" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hCo-Vv-vpA"/>
+                        <viewControllerLayoutGuide type="bottom" id="gSa-Tz-44m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kNn-7f-z8w">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fw-EX-ley" userLabel="Pop-up View">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPp-Ct-SSq" userLabel="Close Button">
+                                        <frame key="frameInset" minX="24" minY="12" width="15" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="CloseButton"/>
+                                        <connections>
+                                            <action selector="close" destination="P3N-5A-cK8" eventType="touchUpInside" id="Bep-4o-fIH"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hLf-ip-WYX">
+                                        <frame key="frameInset" minX="70" minY="9" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Class 1+2 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Em6-Ae-Ht8">
+                                        <frame key="frameInset" minX="24" minY="118" width="104" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Trener:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4g5-x8-7Q1">
+                                        <frame key="frameInset" minX="24" minY="147" width="65" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="17:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E7i-Qf-pav">
+                                        <frame key="frameInset" minX="24" minY="176" width="65" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jxd-0r-VrS">
+                                        <frame key="frameInset" minX="84" minY="202" width="73" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Rezerwuj">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Adam" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-da-NfW">
+                                        <frame key="frameInset" minX="97" minY="147" width="45" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10-10-2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0D-Ht-Kkm">
+                                        <frame key="frameInset" minX="97" minY="176" width="90" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.94999999999999996" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="Qtz-kw-dzg"/>
+                                    <constraint firstAttribute="width" constant="240" id="fvY-v1-k6p"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2fw-EX-ley" firstAttribute="centerX" secondItem="kNn-7f-z8w" secondAttribute="centerX" id="9JG-Rh-7cS"/>
+                            <constraint firstItem="2fw-EX-ley" firstAttribute="centerY" secondItem="kNn-7f-z8w" secondAttribute="centerY" id="NCO-8A-0Hj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="coachImage" destination="hLf-ip-WYX" id="6DC-aU-V2X"/>
+                        <outlet property="coachNameLabel" destination="M2g-da-NfW" id="Rfb-wq-ngR"/>
+                        <outlet property="makeABookingButton" destination="jxd-0r-VrS" id="DfQ-dg-6Fl"/>
+                        <outlet property="popupView" destination="2fw-EX-ley" id="dy0-r5-YQO"/>
+                        <outlet property="trainingDateLabel" destination="j0D-Ht-Kkm" id="Y5t-NL-LcJ"/>
+                        <outlet property="trainingHourLabel" destination="E7i-Qf-pav" id="j26-SV-bgf"/>
+                        <outlet property="trainingNameLabel" destination="Em6-Ae-Ht8" id="mpm-B1-VHu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wYt-nA-JkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="444.375" y="1217.9577464788733"/>
         </scene>
         <!--My Reservations View Controller-->
         <scene sceneID="gaG-vl-xSq">
@@ -161,6 +260,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="CloseButton" width="15" height="15"/>
         <image name="logo-red.png" width="256" height="150"/>
         <image name="stocznia.jpg" width="1619" height="1080"/>
     </resources>

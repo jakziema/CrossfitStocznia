@@ -9,7 +9,10 @@
 import Foundation
 
 class Training {
+  
   var title: String = ""
+  var titleWithName: String = ""
+  var coachName: String = ""
   var date: String = ""
   var dateID: String = ""
   var hour : String = ""

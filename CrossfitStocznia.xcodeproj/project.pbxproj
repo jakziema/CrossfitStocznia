@@ -21,6 +21,9 @@
 		88485DFE1DA54B78008B0BA4 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88485DFD1DA54B78008B0BA4 /* HttpManager.swift */; };
 		88738BF71DA7B9D0008C8AAC /* ParsedTraining.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */; };
 		8874F9621DA67B9C00669E78 /* ScheduleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */; };
+		8881C9A71DAB9CF5003A00C5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881C9A61DAB9CF5003A00C5 /* DetailViewController.swift */; };
+		8881C9A91DABA1F1003A00C5 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881C9A81DABA1F1003A00C5 /* DimmingPresentationController.swift */; };
+		8881C9AE1DABB202003A00C5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881C9AD1DABB202003A00C5 /* GradientView.swift */; };
 		E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +45,9 @@
 		88485DFD1DA54B78008B0BA4 /* HttpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
 		88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParsedTraining.swift; sourceTree = "<group>"; };
 		8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewController.swift; sourceTree = "<group>"; };
+		8881C9A61DAB9CF5003A00C5 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8881C9A81DABA1F1003A00C5 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
+		8881C9AD1DABB202003A00C5 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.release.xcconfig"; sourceTree = "<group>"; };
 		F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,8 +100,19 @@
 				88485DFD1DA54B78008B0BA4 /* HttpManager.swift */,
 				8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */,
 				88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */,
+				8881C9AA1DABA286003A00C5 /* PopupView */,
 			);
 			path = CrossfitStocznia;
+			sourceTree = "<group>";
+		};
+		8881C9AA1DABA286003A00C5 /* PopupView */ = {
+			isa = PBXGroup;
+			children = (
+				8881C9A61DAB9CF5003A00C5 /* DetailViewController.swift */,
+				8881C9A81DABA1F1003A00C5 /* DimmingPresentationController.swift */,
+				8881C9AD1DABB202003A00C5 /* GradientView.swift */,
+			);
+			name = PopupView;
 			sourceTree = "<group>";
 		};
 		B193EB847BAB322093CA45AF /* Pods */ = {
@@ -242,6 +259,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8881C9A71DAB9CF5003A00C5 /* DetailViewController.swift in Sources */,
+				8881C9A91DABA1F1003A00C5 /* DimmingPresentationController.swift in Sources */,
+				8881C9AE1DABB202003A00C5 /* GradientView.swift in Sources */,
 				8874F9621DA67B9C00669E78 /* ScheduleTableViewController.swift in Sources */,
 				881104C31CECE03000CE1758 /* TrainingTableViewCell.swift in Sources */,
 				88485DFE1DA54B78008B0BA4 /* HttpManager.swift in Sources */,
