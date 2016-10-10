@@ -15,6 +15,6 @@ class Training {
   var hour : String = ""
   var placesLeft: Int = 0
   var bgColor: String = ""
-  
+  var nameOfTheWeek: String = ""
   
 }

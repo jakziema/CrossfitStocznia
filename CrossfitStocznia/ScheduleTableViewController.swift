@@ -12,6 +12,8 @@ class ScheduleTableViewController: UITableViewController {
 
   var trainings = [Training]()
   
+  
+  
   override func viewDidLoad() {
         super.viewDidLoad()
       
@@ -29,7 +31,7 @@ class ScheduleTableViewController: UITableViewController {
       
     }
   
-  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-09-26&date_next=2016-10-10&date_start=2016-10-03&date_end=2016-10-09"
+  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-03&date_next=2016-10-17&date_start=2016-10-10&date_end=2016-10-16"
   
   
   func performRequest(_ stringURL: String) -> String? {
@@ -72,12 +74,9 @@ class ScheduleTableViewController: UITableViewController {
       training.hour = hour
       training.date = date
       training.dateID = dateID
-      if freePlaces != 0 {
-        training.placesLeft = freePlaces
-      } else {
-        training.placesLeft = 0
-      }
+      training.placesLeft = freePlaces
       training.bgColor = bgColor
+      training.nameOfTheWeek = getNameOfTheWeekFrom(dateAsString: date)!
       
       print(training.placesLeft)
       
@@ -128,19 +127,37 @@ class ScheduleTableViewController: UITableViewController {
       return cell
 
     }
+  
+  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    <#code#>
+  }
  
 
+
+}
+
+
+  func getNameOfTheWeekFrom(dateAsString date: String) -> String? {
+    let weekdays = [
+      "Niedziela",
+      "Poniedziałek",
+      "Wtorek",
+      "Środa",
+      "Czwartek",
+      "Piątek",
+      "Sobota"
+    ]
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    let formatter  = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd"
+    if let todayDate = formatter.date(from: date) {
+      let myCalendar = Calendar(identifier: .gregorian)
+      let weekDay = myCalendar.component(.weekday, from: todayDate)
+      return weekdays[weekDay - 1]
+    } else {
+      return nil
     }
-    */
-
+  
 }
 
 
