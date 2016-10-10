@@ -85,6 +85,8 @@ class HttpManager  {
   }
   
 
+  
+
 }
 
 extension UIColor {

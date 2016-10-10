@@ -19,5 +19,6 @@ class Training {
   var placesLeft: Int = 0
   var bgColor: String = ""
   var nameOfTheWeek: String = ""
+  var id = ""
   
 }

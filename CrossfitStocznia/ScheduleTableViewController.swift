@@ -76,6 +76,7 @@ class ScheduleTableViewController: UITableViewController {
       training.coachName = getName(OfTheCoach: title)
       training.date = date
       training.nameOfTheWeek = getNameOfTheWeekFrom(dateAsString: date)!
+      training.id = dictionary["id"] as! String
       
       
       trainings.append(training)

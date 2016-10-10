@@ -18,7 +18,8 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var trainingNameLabel: UILabel!
   @IBOutlet weak var trainingHourLabel: UILabel!
   @IBOutlet weak var trainingDateLabel: UILabel!
-  @IBOutlet weak var makeABookingButton: UIButton!  
+  @IBOutlet weak var makeABookingButton: UIButton!
+  
   
   required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
@@ -30,6 +31,25 @@ class DetailViewController: UIViewController {
     dismiss(animated: true, completion: nil)
   }
   
+  @IBAction func makeABooking() {
+    let bookingString = "http://crossfitstocznia.reservante.pl/calendars/reservation/665/\(training.dateID)/\(training.id)"
+    
+    var request = URLRequest(url: URL(string: bookingString)!)
+    request.httpMethod = "POST"
+    let postString = "info=" + "" + "&submit=" + "" 
+    
+    request.httpBody = postString.data(using: String.Encoding.utf8);
+    
+    let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+      if error != nil {
+        return
+      }
+    }
+    
+    task.resume()
+    
+    
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
     
