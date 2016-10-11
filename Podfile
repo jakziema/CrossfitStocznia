@@ -5,4 +5,5 @@ use_frameworks!
 
 target 'CrossfitStocznia' do
    pod 'HTMLReader', '~> 2.0'
+   pod 'SwiftKeychainWrapper', '~> 3.0'
 end

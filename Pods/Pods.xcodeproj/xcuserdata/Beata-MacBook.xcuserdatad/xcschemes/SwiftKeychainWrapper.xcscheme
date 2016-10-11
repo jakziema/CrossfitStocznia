@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'BFE843FA4877666FE13FB42B7B6F5771'
-               BlueprintName = 'Pods-CrossfitStocznia'
+               BlueprintIdentifier = 'E543E6937912F16349402ECBD27D1607'
+               BlueprintName = 'SwiftKeychainWrapper'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods-CrossfitStocznia.framework'>
+               BuildableName = 'SwiftKeychainWrapper.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

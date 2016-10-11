@@ -1,12 +1,15 @@
 PODS:
   - HTMLReader (2.0)
+  - SwiftKeychainWrapper (3.0.0)
 
 DEPENDENCIES:
   - HTMLReader (~> 2.0)
+  - SwiftKeychainWrapper (~> 3.0)
 
 SPEC CHECKSUMS:
   HTMLReader: 7fbf32ddfcbcdfeba0833713e4545d1862aeb07c
+  SwiftKeychainWrapper: aa69884eb623a6f7d644921bbf58c8cee416a9e6
 
-PODFILE CHECKSUM: 0862848d72bea4207f39bf44b56e3ea61f8fe6fc
+PODFILE CHECKSUM: c43c15abce189d03f63569c68abbafcb0dca1abf
 
 COCOAPODS: 1.0.1

@@ -118,7 +118,7 @@ class ScheduleTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.trainingCell, for: indexPath) as! TrainingTableViewCell
       let training = trainings[(indexPath as NSIndexPath).row]
-      cell.trainingNameLabel.text = training.title
+      cell.trainingNameLabel.text = training.titleWithName
       cell.backgroundColor = UIColor(hexString: training.bgColor)
       cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
       cell.dateLabel.text = "Data: " + training.date
