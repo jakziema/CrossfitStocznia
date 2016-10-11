@@ -70,7 +70,7 @@ class ScheduleTableViewController: UITableViewController {
       training.dateID = dateID
       training.placesLeft = dictionary["places"] as! Int
       training.bgColor = dictionary["bg"] as! String
-      training.hour = hour.substring(to: "17:00:00".index("17:00:00".endIndex, offsetBy: -3))
+      training.hour = String(hour.characters.prefix(5))
       //print(training.hour)1
       training.titleWithName = title
       training.title = deleteName(ofTheCoach: title)
@@ -80,9 +80,10 @@ class ScheduleTableViewController: UITableViewController {
       training.id = dictionary["id"] as! String
       training.dateAsDateType = fromStringToDate(dateString: dateID)
       
+      trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
       trainings.append(training)
       
-      trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
+      
       
       
       
