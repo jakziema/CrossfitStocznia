@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController {
   
@@ -30,9 +31,11 @@ class LoginViewController: UIViewController {
         }
         
       } else {
-        print("SUKCES!!!!")
         
-        print(Thread.isMainThread)
+        KeychainWrapper.standard.set(self.loginTextField.text!, forKey: "email")
+        KeychainWrapper.standard.set(self.passwordTextField.text!, forKey: "password")
+        KeychainWrapper.standard.set(true, forKey: "savedCredentials")
+        
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
           self.performSegue(withIdentifier: "toTrainingsTable", sender: self)
@@ -51,10 +54,25 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    
+    if  KeychainWrapper.standard.bool(forKey: "savedCredentials") != nil {
+      if (KeychainWrapper.standard.string(forKey: "email") != nil) && (KeychainWrapper.standard.string(forKey: "password") != nil) {
+        httpManager.loginWithParameters2(email: KeychainWrapper.standard.string(forKey: "email")!, password: KeychainWrapper.standard.string(forKey: "password")!, urlString: crossfitStoczniAuth) {content in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+          self.performSegue(withIdentifier: "toTrainingsTable", sender: self)
+        }
+      }
+      }
+    }
       
       
   }
+  
+  
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -66,7 +66,8 @@ class ScheduleTableViewController: UITableViewController {
       let title  = dictionary["title"] as! String
       let hour = dictionary["hour"] as! String
       let date = dictionary["date"] as! String
-      training.dateID  = dictionary["date_id"] as! String
+      let dateID  = dictionary["date_id"] as! String
+      training.dateID = dateID
       training.placesLeft = dictionary["places"] as! Int
       training.bgColor = dictionary["bg"] as! String
       training.hour = hour.substring(to: "17:00:00".index("17:00:00".endIndex, offsetBy: -3))
@@ -77,10 +78,11 @@ class ScheduleTableViewController: UITableViewController {
       training.date = date
       training.nameOfTheWeek = getNameOfTheWeekFrom(dateAsString: date)!
       training.id = dictionary["id"] as! String
-      
+      training.dateAsDateType = fromStringToDate(dateString: dateID)
       
       trainings.append(training)
       
+      trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
       
       
       
@@ -188,5 +190,15 @@ func deleteName(ofTheCoach text: String) -> String {
     }
   
 }
+
+func fromStringToDate(dateString: String) -> Date {
+  let dateFormatter = DateFormatter()
+  dateFormatter.dateFormat = "yyyy_MM_dd_HH_mm"
+  
+  return dateFormatter.date(from: dateString)!
+  
+}
+
+
 
 

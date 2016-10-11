@@ -20,5 +20,6 @@ class Training {
   var bgColor: String = ""
   var nameOfTheWeek: String = ""
   var id = ""
+  var dateAsDateType: Date = Date()
   
 }
