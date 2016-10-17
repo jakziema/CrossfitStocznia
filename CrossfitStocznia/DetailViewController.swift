@@ -78,6 +78,8 @@ class DetailViewController: UIViewController {
     trainingHourLabel.text = training.hour
     trainingDateLabel.text = training.date
     
+    print(training.date)
+    
   }
   
   

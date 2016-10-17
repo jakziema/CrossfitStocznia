@@ -84,7 +84,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dfY-Zf-7Wo" id="0ef-Ms-jH4">
-                                    <frame key="frameInset" width="320" height="43"/>
+                                    <frame key="frameInset" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -171,14 +171,14 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Krzysiek" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M2g-da-NfW">
-                                        <frame key="frameInset" minX="97" minY="147" width="65" height="21"/>
+                                        <frame key="frameInset" minX="97" minY="147" width="135" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10-10-2016" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0D-Ht-Kkm">
-                                        <frame key="frameInset" minX="97" minY="176" width="90" height="21"/>
+                                        <frame key="frameInset" minX="97" minY="176" width="135" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
@@ -231,19 +231,9 @@
                     <view key="view" contentMode="scaleToFill" id="9pl-lI-Ksv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PbE-7Y-3Am">
-                                <frame key="frameInset" width="320" height="519"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </webView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" systemItem="bookmarks" id="vmf-0i-i4x"/>
-                    <connections>
-                        <outlet property="webView" destination="PbE-7Y-3Am" id="QKX-NZ-B7I"/>
-                    </connections>
+                    <tabBarItem key="tabBarItem" tag="1" systemItem="search" id="vmf-0i-i4x"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ww6-7r-iXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -253,7 +243,7 @@
         <scene sceneID="jjb-eM-2Op">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="1GU-jO-Jq0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="aNu-E3-fp1"/>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="aNu-E3-fp1"/>
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>

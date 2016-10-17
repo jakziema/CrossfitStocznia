@@ -16,22 +16,51 @@ class ScheduleTableViewController: UITableViewController {
   
   override func viewDidLoad() {
         super.viewDidLoad()
-      
- 
+    
         tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         tableView.rowHeight = 80
         
         let cellNib = UINib(nibName: TableViewCellIdentifiers.trainingCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.trainingCell)
         
-        let data = parseJSON(performRequest(calendarURL)!)
+        let data = parseJSON(performRequest(getPresentCalendarURL())!)
         trainings = parseArraysOfDictionaries(data!)
         
         tableView.reloadData()
       
     }
   
-  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-03&date_next=2016-10-17&date_start=2016-10-10&date_end=2016-10-16"
+  
+  func getPresentCalendarURL()-> String {
+    var calendarURL = ""
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    let firstDayOfTheWeek = Date()
+    let lastDayOfTheWeek = firstDayOfTheWeek.addingTimeInterval(7 * 24 * 60 * 60)
+    
+    calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-10&date_next=2016-10-24&date_start=\(dateFormatter.string(from: firstDayOfTheWeek))&date_end=\(dateFormatter.string(from: lastDayOfTheWeek))"
+    
+    
+    return calendarURL
+  }
+  
+  func getNewCalendarURL() -> String {
+    
+    var calendarURL = ""
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy-MM-dd"
+    
+    let firstDayOfTheWeek = Date().addingTimeInterval(7 * 24 * 60 * 60)
+    let lastDayOfTheWeek = firstDayOfTheWeek.addingTimeInterval(7 * 24 * 60 * 60)
+    
+    calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-10&date_next=2016-10-24&date_start=\(dateFormatter.string(from: firstDayOfTheWeek))&date_end=\(dateFormatter.string(from: lastDayOfTheWeek))"
+    
+    
+    return calendarURL
+  }
   
   
   func performRequest(_ stringURL: String) -> String? {
@@ -71,7 +100,6 @@ class ScheduleTableViewController: UITableViewController {
       training.placesLeft = dictionary["places"] as! Int
       training.bgColor = dictionary["bg"] as! String
       training.hour = String(hour.characters.prefix(5))
-      //print(training.hour)1
       training.titleWithName = title
       training.title = deleteName(ofTheCoach: title)
       training.coachName = getName(OfTheCoach: title)
@@ -82,10 +110,6 @@ class ScheduleTableViewController: UITableViewController {
       
       trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
       trainings.append(training)
-      
-      
-      
-      
       
     }
     
@@ -134,6 +158,8 @@ class ScheduleTableViewController: UITableViewController {
     tableView.deselectRow(at: indexPath, animated: true)
     performSegue(withIdentifier: "ShowDetail", sender: indexPath)
   }
+  
+  
  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ShowDetail" {
@@ -144,6 +170,8 @@ class ScheduleTableViewController: UITableViewController {
       
     }
   }
+  
+  
 
 }
 

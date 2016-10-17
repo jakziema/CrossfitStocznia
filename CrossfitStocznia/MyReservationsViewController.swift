@@ -13,7 +13,7 @@ class MyReservationsViewController: UIViewController {
   
   var myReservations = [ParsedTraining]()
   
-  @IBOutlet weak var webView: UIWebView!
+  
   
     override func viewDidLoad() {
         super.viewDidLoad()
