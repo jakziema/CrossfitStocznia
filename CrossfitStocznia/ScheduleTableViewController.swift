@@ -12,6 +12,7 @@ class ScheduleTableViewController: UITableViewController {
 
   var trainings = [Training]()
   
+  var sections = [Section]()
   
   
   override func viewDidLoad() {
@@ -24,7 +25,7 @@ class ScheduleTableViewController: UITableViewController {
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.trainingCell)
         
         let data = parseJSON(performRequest(getPresentCalendarURL())!)
-        trainings = parseArraysOfDictionaries(data!)
+        sections = parseArraysOfDictionaries(data!)
         
         tableView.reloadData()
       
@@ -85,9 +86,11 @@ class ScheduleTableViewController: UITableViewController {
     }
   }
   
-  func parseArraysOfDictionaries(_ array: [[String:AnyObject]])  -> [Training] {
+  func parseArraysOfDictionaries(_ array: [[String:AnyObject]])  -> [Section] {
     
-    var trainings = [Training]()
+//    var trainings = [Training]()
+    
+    var sections = [Section]()
     
     for dictionary in array{
       
@@ -108,14 +111,14 @@ class ScheduleTableViewController: UITableViewController {
       training.id = dictionary["id"] as! String
       training.dateAsDateType = fromStringToDate(dateString: dateID)
       
-      trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
-      trainings.append(training)
-      
+//      trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
+//      trainings.append(training)
+        
+        sections.append(Section(sectionTitle: date, sectionTrainings: [training]))
+
     }
     
-    
-    
-    return trainings
+    return sections
     
   }
   
@@ -133,18 +136,18 @@ class ScheduleTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return trainings.count
+        return sections[section].sectionTrainings.count
     }
 
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.trainingCell, for: indexPath) as! TrainingTableViewCell
-      let training = trainings[(indexPath as NSIndexPath).row]
+      let training = sections[indexPath.section].sectionTrainings[indexPath.row]
       cell.trainingNameLabel.text = training.titleWithName
       cell.backgroundColor = UIColor(hexString: training.bgColor)
       cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
@@ -153,6 +156,10 @@ class ScheduleTableViewController: UITableViewController {
       return cell
 
     }
+  
+  override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    return sections[section].sectionTitle
+  }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     tableView.deselectRow(at: indexPath, animated: true)

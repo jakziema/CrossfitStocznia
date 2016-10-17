@@ -24,6 +24,7 @@
 		8881C9A71DAB9CF5003A00C5 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881C9A61DAB9CF5003A00C5 /* DetailViewController.swift */; };
 		8881C9A91DABA1F1003A00C5 /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881C9A81DABA1F1003A00C5 /* DimmingPresentationController.swift */; };
 		8881C9AE1DABB202003A00C5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881C9AD1DABB202003A00C5 /* GradientView.swift */; };
+		88AC1EE31DB5288900D5DAB0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AC1EE21DB5288900D5DAB0 /* Section.swift */; };
 		E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		8881C9A61DAB9CF5003A00C5 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8881C9A81DABA1F1003A00C5 /* DimmingPresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		8881C9AD1DABB202003A00C5 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		88AC1EE21DB5288900D5DAB0 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.release.xcconfig"; sourceTree = "<group>"; };
 		F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 				8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */,
 				88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */,
 				8881C9AA1DABA286003A00C5 /* PopupView */,
+				88AC1EE21DB5288900D5DAB0 /* Section.swift */,
 			);
 			path = CrossfitStocznia;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				88738BF71DA7B9D0008C8AAC /* ParsedTraining.swift in Sources */,
 				88485DFC1DA53109008B0BA4 /* MyReservationsViewController.swift in Sources */,
 				881104BB1CECD9E000CE1758 /* Training.swift in Sources */,
+				88AC1EE31DB5288900D5DAB0 /* Section.swift in Sources */,
 				88485DF01DA4FFF0008B0BA4 /* LoginViewController.swift in Sources */,
 				881104A91CECB79400CE1758 /* AppDelegate.swift in Sources */,
 			);
