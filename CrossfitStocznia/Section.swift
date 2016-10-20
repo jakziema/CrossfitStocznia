@@ -9,9 +9,12 @@
 import Foundation
 
 
-struct Section {
+class Section: NSObject {
   var sectionTitle: String
   var sectionTrainings: [Training]
   
-  
+  init(sectionTitle: String, sectionTrainings: [Training]) {
+    self.sectionTitle = sectionTitle
+    self.sectionTrainings = sectionTrainings
+  }
 }

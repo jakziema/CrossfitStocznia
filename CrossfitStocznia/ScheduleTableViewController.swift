@@ -113,8 +113,7 @@ class ScheduleTableViewController: UITableViewController {
       
 //      trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
 //      trainings.append(training)
-        
-        sections.append(Section(sectionTitle: date, sectionTrainings: [training]))
+      sections.append(Section(sectionTitle: date, sectionTrainings: [training]))
 
     }
     

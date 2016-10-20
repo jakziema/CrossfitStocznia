@@ -56,12 +56,9 @@ class HttpManager  {
     
     var request = URLRequest(url:myUrl!)
     
-    request.httpMethod = "POST"// Compose a query string
-    
+    request.httpMethod = "POST"
     let postString = "email="+email + "&password=" + password + "&submit_login= ";
-    
     request.httpBody = postString.data(using: String.Encoding.utf8);
-    
     let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?)  in
       
       if error != nil
@@ -69,10 +66,6 @@ class HttpManager  {
         print("error=\(error)")
         return
       }
-      
-      //print("response = \(response)")
-      
-      //print(NSString(data: data!, encoding: String.Encoding.utf8.rawValue))
       
       let content2 = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
       completionHandler(content2)

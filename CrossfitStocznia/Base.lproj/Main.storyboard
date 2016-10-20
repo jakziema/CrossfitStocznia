@@ -15,10 +15,10 @@
                         <viewControllerLayoutGuide type="bottom" id="toK-Bp-d3M"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WpP-aN-c12">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stocznia.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mnG-7o-fOT"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.10000000000000001" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stocznia.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="mnG-7o-fOT"/>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uj5-nR-aHH">
                                 <frame key="frameInset" minX="67" minY="236" height="30" maxX="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
@@ -76,15 +76,15 @@
             <objects>
                 <tableViewController id="wLg-8i-gLh" customClass="ScheduleTableViewController" customModule="CrossfitStocznia" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="CY2-tc-2Mf">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrainingCell" id="dfY-Zf-7Wo">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dfY-Zf-7Wo" id="0ef-Ms-jH4">
-                                    <frame key="frameInset" width="320" height="43.5"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -130,7 +130,7 @@
                         <viewControllerLayoutGuide type="bottom" id="gSa-Tz-44m"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kNn-7f-z8w">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2fw-EX-ley" userLabel="Pop-up View">
@@ -229,7 +229,7 @@
                         <viewControllerLayoutGuide type="bottom" id="oLv-G9-fxm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9pl-lI-Ksv">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
