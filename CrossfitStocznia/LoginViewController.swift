@@ -53,7 +53,9 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+      
+      loginTextField.text = "ziemannjakub@gmail.com"
+      passwordTextField.text = "Tczew22011994"
   }
   
   override func viewWillAppear(_ animated: Bool) {

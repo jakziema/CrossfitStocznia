@@ -15,6 +15,10 @@ class ScheduleTableViewController: UITableViewController {
   var sections = [Section]()
   
   
+  
+  
+  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-17&date_next=2016-10-31&date_start=2016-10-24&date_end=2016-10-30"
+  
   override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -24,9 +28,11 @@ class ScheduleTableViewController: UITableViewController {
         let cellNib = UINib(nibName: TableViewCellIdentifiers.trainingCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.trainingCell)
         
-        let data = parseJSON(performRequest(getPresentCalendarURL())!)
+        let data = parseJSON(performRequest(calendarURL)!)
         sections = parseArraysOfDictionaries(data!)
+    
         
+    
         tableView.reloadData()
       
     }
@@ -43,6 +49,7 @@ class ScheduleTableViewController: UITableViewController {
     
     calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-10&date_next=2016-10-24&date_start=\(dateFormatter.string(from: firstDayOfTheWeek))&date_end=\(dateFormatter.string(from: lastDayOfTheWeek))"
     
+    print(calendarURL)
     
     return calendarURL
   }
@@ -91,6 +98,9 @@ class ScheduleTableViewController: UITableViewController {
 //    var trainings = [Training]()
     
     var sections = [Section]()
+    var dates = [String]()
+    
+    var sections2 = ["Poniedziałek": [Training](), "Wtorek": [Training](), "Środa": [Training](), "Czwartek": [Training](), "Piątek": [Training](), "Sobota": [Training](), "Niedziela": [Training]()]
     
     for dictionary in array{
       
@@ -111,11 +121,23 @@ class ScheduleTableViewController: UITableViewController {
       training.id = dictionary["id"] as! String
       training.dateAsDateType = fromStringToDate(dateString: dateID)
       
-//      trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
+      dates.append(date)
+      
+      trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
 //      trainings.append(training)
-      sections.append(Section(sectionTitle: date, sectionTrainings: [training]))
-
+      
+      
+      
+      
+      sections2[training.nameOfTheWeek]!.append(training)
+      
     }
+    
+    
+    
+    dates = Array(Set(dates)).sorted()
+  
+    
     
     return sections
     
@@ -140,7 +162,8 @@ class ScheduleTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return sections[section].sectionTrainings.count
+//        return sections[section].sectionTrainings.count
+      return sections.count
     }
 
   
@@ -171,7 +194,7 @@ class ScheduleTableViewController: UITableViewController {
     if segue.identifier == "ShowDetail" {
       let detailViewController = segue.destination as! DetailViewController
       let indexPath = sender as! IndexPath
-      let tappedCell = trainings[indexPath.row]
+      let tappedCell = sections[indexPath.section].sectionTrainings[indexPath.row]
       detailViewController.training = tappedCell
       
     }
