@@ -9,33 +9,28 @@
 import UIKit
 
 class ScheduleTableViewController: UITableViewController {
-
+  
   var trainings = [Training]()
   
   var sections = [Section]()
   
-  
-  
-  
-  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-17&date_next=2016-10-31&date_start=2016-10-24&date_end=2016-10-30"
+  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-24&date_next=2016-11-07&date_start=2016-10-31&date_end=2016-11-06"
   
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
     
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        tableView.rowHeight = 80
-        
-        let cellNib = UINib(nibName: TableViewCellIdentifiers.trainingCell, bundle: nil)
-        tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.trainingCell)
-        
-        let data = parseJSON(performRequest(calendarURL)!)
-        sections = parseArraysOfDictionaries(data!)
+    tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    tableView.rowHeight = 80
     
-        
+    let cellNib = UINib(nibName: TableViewCellIdentifiers.trainingCell, bundle: nil)
+    tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.trainingCell)
     
-        tableView.reloadData()
-      
-    }
+    let data = parseJSON(performRequest(calendarURL)!)
+    sections = parseArraysOfDictionaries(data!)
+    
+    tableView.reloadData()
+    
+  }
   
   
   func getPresentCalendarURL()-> String {
@@ -95,12 +90,10 @@ class ScheduleTableViewController: UITableViewController {
   
   func parseArraysOfDictionaries(_ array: [[String:AnyObject]])  -> [Section] {
     
-//    var trainings = [Training]()
+    //    var trainings = [Training]()
     
     var sections = [Section]()
-    var dates = [String]()
     
-    var sections2 = ["Poniedziałek": [Training](), "Wtorek": [Training](), "Środa": [Training](), "Czwartek": [Training](), "Piątek": [Training](), "Sobota": [Training](), "Niedziela": [Training]()]
     
     for dictionary in array{
       
@@ -117,26 +110,18 @@ class ScheduleTableViewController: UITableViewController {
       training.title = deleteName(ofTheCoach: title)
       training.coachName = getName(OfTheCoach: title)
       training.date = date
-      training.nameOfTheWeek = getNameOfTheWeekFrom(dateAsString: date)!
+      
       training.id = dictionary["id"] as! String
       training.dateAsDateType = fromStringToDate(dateString: dateID)
       
-      dates.append(date)
+      
       
       trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
-//      trainings.append(training)
+      //      trainings.append(training)
       
-      
-      
-      
-      sections2[training.nameOfTheWeek]!.append(training)
+      sections.append(Section(sectionTitle: date, sectionTrainings: [training]))
       
     }
-    
-    
-    
-    dates = Array(Set(dates)).sorted()
-  
     
     
     return sections
@@ -147,37 +132,37 @@ class ScheduleTableViewController: UITableViewController {
     static let trainingCell = "TrainingCell"
     
   }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return sections.count
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-//        return sections[section].sectionTrainings.count
-      return sections.count
-    }
-
   
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.trainingCell, for: indexPath) as! TrainingTableViewCell
-      let training = sections[indexPath.section].sectionTrainings[indexPath.row]
-      cell.trainingNameLabel.text = training.titleWithName
-      cell.backgroundColor = UIColor(hexString: training.bgColor)
-      cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
-      cell.dateLabel.text = "Data: " + training.date
-      
-      return cell
-
-    }
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
+  }
+  
+  // MARK: - Table view data source
+  
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    // #warning Incomplete implementation, return the number of sections
+    return sections.count
+  }
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    // #warning Incomplete implementation, return the number of rows
+    return sections[section].sectionTrainings.count
+    
+  }
+  
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.trainingCell, for: indexPath) as! TrainingTableViewCell
+    let training = sections[indexPath.section].sectionTrainings[indexPath.row]
+    cell.trainingNameLabel.text = training.titleWithName
+    cell.backgroundColor = UIColor(hexString: training.bgColor)
+    cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
+    cell.dateLabel.text = "Data: " + training.date
+    
+    return cell
+    
+  }
   
   override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
     return sections[section].sectionTitle
@@ -189,7 +174,7 @@ class ScheduleTableViewController: UITableViewController {
   }
   
   
- 
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "ShowDetail" {
       let detailViewController = segue.destination as! DetailViewController
@@ -200,32 +185,29 @@ class ScheduleTableViewController: UITableViewController {
     }
   }
   
-  
-
-}
-
-func getName(OfTheCoach text: String) -> String {
-  var name = ""
-  if let match = text.range(of: "(?<=\\()[^()]{1,10}(?=\\))", options: .regularExpression) {
-    name =  text.substring(with: match)
+  func getName(OfTheCoach text: String) -> String {
+    var name = ""
+    if let match = text.range(of: "(?<=\\()[^()]{1,10}(?=\\))", options: .regularExpression) {
+      name =  text.substring(with: match)
+      
+    }
     
+    return name
   }
   
-  return name
-}
-
-func deleteName(ofTheCoach text: String) -> String {
-  var title = ""
-  if let range = text.range(of: "(") {
-    title =  text.substring(to: range.lowerBound)
+  
+  func deleteName(ofTheCoach text: String) -> String {
+    var title = ""
+    if let range = text.range(of: "(") {
+      title =  text.substring(to: range.lowerBound)
+    }
+    
+    return title
   }
   
-  return title
-}
-
-
-
-
+  
+  
+  
   func getNameOfTheWeekFrom(dateAsString date: String) -> String? {
     let weekdays = [
       "Niedziela",
@@ -246,16 +228,20 @@ func deleteName(ofTheCoach text: String) -> String {
     } else {
       return nil
     }
+    
+  }
   
+  func fromStringToDate(dateString: String) -> Date {
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "yyyy_MM_dd_HH_mm"
+    
+    return dateFormatter.date(from: dateString)!
+    
+  }
+ 
 }
 
-func fromStringToDate(dateString: String) -> Date {
-  let dateFormatter = DateFormatter()
-  dateFormatter.dateFormat = "yyyy_MM_dd_HH_mm"
-  
-  return dateFormatter.date(from: dateString)!
-  
-}
+
 
 
 

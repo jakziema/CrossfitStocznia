@@ -26,8 +26,8 @@ class LoginViewController: UIViewController {
         
         let alertController = UIAlertController(title: "Error", message: "Niepoprawny login lub hasło", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
-          DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.present(alertController, animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+          self.present(alertController, animated: true, completion: nil)
         }
         
       } else {
@@ -44,18 +44,13 @@ class LoginViewController: UIViewController {
         
       }
     }
-     
-  
+    
+    
   }
   
-  
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
-      loginTextField.text = "ziemannjakub@gmail.com"
-      passwordTextField.text = "Tczew22011994"
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -64,31 +59,19 @@ class LoginViewController: UIViewController {
     if  KeychainWrapper.standard.bool(forKey: "savedCredentials") != nil {
       if (KeychainWrapper.standard.string(forKey: "email") != nil) && (KeychainWrapper.standard.string(forKey: "password") != nil) {
         httpManager.loginWithParameters2(email: KeychainWrapper.standard.string(forKey: "email")!, password: KeychainWrapper.standard.string(forKey: "password")!, urlString: crossfitStoczniAuth) {content in
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-          self.performSegue(withIdentifier: "toTrainingsTable", sender: self)
+          DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.performSegue(withIdentifier: "toTrainingsTable", sender: self)
+          }
         }
       }
-      }
     }
-      
-      
+  }
+  
+  override func didReceiveMemoryWarning() {
+    super.didReceiveMemoryWarning()
+    // Dispose of any resources that can be recreated.
   }
   
   
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
   
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

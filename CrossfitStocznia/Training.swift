@@ -22,4 +22,6 @@ class Training {
   var id = ""
   var dateAsDateType: Date = Date()
   
+  
+  
 }
