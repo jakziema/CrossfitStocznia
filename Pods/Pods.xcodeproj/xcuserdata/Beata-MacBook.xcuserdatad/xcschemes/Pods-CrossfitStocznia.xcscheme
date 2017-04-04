@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0800"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BFE843FA4877666FE13FB42B7B6F5771"
+               BlueprintIdentifier = "809CA63141083362F0A2F68A0FDB1F76"
                BuildableName = "Pods_CrossfitStocznia.framework"
                BlueprintName = "Pods-CrossfitStocznia"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BFE843FA4877666FE13FB42B7B6F5771"
+            BlueprintIdentifier = "809CA63141083362F0A2F68A0FDB1F76"
             BuildableName = "Pods_CrossfitStocznia.framework"
             BlueprintName = "Pods-CrossfitStocznia"
             ReferencedContainer = "container:Pods.xcodeproj">

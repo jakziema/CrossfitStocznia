@@ -22,7 +22,8 @@ class HttpManager  {
     request.httpMethod = "POST"
     request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringCacheData
     
-    let paramString = "email="+email+"&password="+password+"&submit_login= "
+    let token = "7Ff3u9bKtrbEpx2B4_kG12Cw1OnNXf79bpxkCS6AJ2g"
+    let paramString = "sign_in_form[_token]=" + token + "&sign_in_form[email]"+email+"&sign_in_form[password]="+password+"&sign_in_form[submit]= "
     request.httpBody = paramString.data(using: String.Encoding.utf8)
     
     let task = session.downloadTask(with: request as URLRequest, completionHandler: {
@@ -57,7 +58,9 @@ class HttpManager  {
     var request = URLRequest(url:myUrl!)
     
     request.httpMethod = "POST"
-    let postString = "email="+email + "&password=" + password + "&submit_login= ";
+    request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+    let token = "1PSGOuwm9lyxteECNfZhX_yszFmWFQK1GdSv3q44wqg"
+    let postString = "sign_in_form[_token]=" + token + "&sign_in_form[email]="+email+"&sign_in_form[password]="+password+"&sign_in_form[submit]"
     request.httpBody = postString.data(using: String.Encoding.utf8);
     let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?)  in
       
@@ -69,13 +72,14 @@ class HttpManager  {
       
       let content2 = NSString(data: data!, encoding: String.Encoding.utf8.rawValue) as! String
       completionHandler(content2)
+      
 
     }
     task.resume()
     
-   
-   
   }
+  
+  
   
 
   

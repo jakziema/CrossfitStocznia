@@ -1,15 +1,18 @@
 PODS:
+  - Alamofire (4.0.1)
   - HTMLReader (2.0)
   - SwiftKeychainWrapper (3.0.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - HTMLReader (~> 2.0)
   - SwiftKeychainWrapper (~> 3.0)
 
 SPEC CHECKSUMS:
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   HTMLReader: 7fbf32ddfcbcdfeba0833713e4545d1862aeb07c
   SwiftKeychainWrapper: aa69884eb623a6f7d644921bbf58c8cee416a9e6
 
-PODFILE CHECKSUM: c43c15abce189d03f63569c68abbafcb0dca1abf
+PODFILE CHECKSUM: 62f74390ac221ad2d324536dbae32e0fd2b24746
 
 COCOAPODS: 1.0.1

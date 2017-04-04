@@ -8,19 +8,55 @@
 
 import UIKit
 import SwiftKeychainWrapper
+import Alamofire
 
 class LoginViewController: UIViewController {
   
   @IBOutlet weak var loginTextField: UITextField!
   @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var tokenTextField: UITextField!
+    
   
   let httpManager = HttpManager()
-  var crossfitStoczniAuth = "http://crossfitstocznia.reservante.pl/auth"
+  var crossfitStoczniAuth = "http://crossfitstocznia.reservante.pl/auth/login/check"
   
   @IBAction func login() {
+    
+    let headers = [
+      "Content-Type": "application/x-www-form-urlencoded"
+    ]
+    
+    let parameters: Parameters = [
+      "sign_in_form[_token]": tokenTextField.text!,
+      "sign_in_form[email]" : "ziemannjakub@gmail.com",
+      "sign_in_form[password]" : "Tczew22011994",
+      "sign_in_form[submit]" : ""
+    ]
+    
+    Alamofire.request(crossfitStoczniAuth, method: .post, parameters: parameters, headers: headers).response{
+      response in
+      print("Request: \(response.request)")
+      print("Response: \(response.response)")
+      print("Error: \(response.error)")
+      
+      if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+        print("------------------------------------------------------")
+        print("Data: \(utf8Text)")
+      }
+    }
+    
+    
     //httpManager.loginWithParameters(email: loginTextField.text!, password: passwordTextField.text!, urlString: crossfitStoczniAuth)
+    
+    /**
+    
     httpManager.loginWithParameters2(email: loginTextField.text!, password: passwordTextField.text!, urlString: crossfitStoczniAuth){content in
+      
+      print(content)
+      
       if content.contains("Niepoprawny") {
+        
+        
         
         print(Thread.isMainThread)
         
@@ -44,12 +80,19 @@ class LoginViewController: UIViewController {
         
       }
     }
+ 
+ */
     
     
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    let loginMethod = MyReservationsViewController()
+    loginMethod.getTokenValue()
+    
+    
     
   }
   

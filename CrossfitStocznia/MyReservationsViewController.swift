@@ -19,20 +19,35 @@ class MyReservationsViewController: UIViewController {
     super.viewDidLoad()
     
     let myHTMLString = getContent(ofHTML: "http://crossfitstocznia.reservante.pl/client/orders").trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+    
+    print("ZAWARTOSC HTML: \(myHTMLString)")
+    
+    
     if let  lowerBound = myHTMLString.range(of: "<h2>Archiwum rezerwacji") {
       if let upperBound = myHTMLString.range(of: "Aktualne rezerwacje</h2>") {
         let result = myHTMLString.substring(to: lowerBound.lowerBound)
         let result2 = result.substring(from: upperBound.upperBound)
         
+        print("REZERWACJE:  \(result2)")
         parseHTML(html: result2)
         
       }
     }
+    
+    
+    
+    
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+    
+    func getTokenValue() {
+        let myHTMLString = getContent(ofHTML: "http://crossfitstocznia.reservante.pl/auth").trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+        
+        print("Zawartosc html: \(myHTMLString)")
+    }
   
   
   func parseHTML(html: String) {
@@ -41,9 +56,12 @@ class MyReservationsViewController: UIViewController {
       let link = node.attributes
       print(link["href"]!)
       let linkToReservations = "http://crossfitstocznia.reservante.pl" + link["href"]!
-      //print(linkToReservations)
+      print(linkToReservations)
     }
   }
+    
+    
+    
   
   
   
