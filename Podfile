@@ -9,4 +9,6 @@ target 'CrossfitStocznia' do
    pod 'HTMLReader', '~> 2.0'
    pod 'SwiftKeychainWrapper', '~> 3.0'
    pod 'Alamofire', '~> 4.0'
+   pod "SwiftSoup"
+
 end
