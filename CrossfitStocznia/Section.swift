@@ -11,10 +11,14 @@ import Foundation
 
 class Section: NSObject {
   var sectionTitle: String
-  var sectionTrainings: [Training]
+  var sectionTrainings: [Training] = []
   
-  init(sectionTitle: String, sectionTrainings: [Training]) {
+  init(sectionTitle: String) {
     self.sectionTitle = sectionTitle
-    self.sectionTrainings = sectionTrainings
   }
+    
+    func setSectionTrainings(sectionTrainings: [Training]) {
+        self.sectionTrainings = sectionTrainings
+
+    }
 }
