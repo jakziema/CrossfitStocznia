@@ -50,7 +50,7 @@ class HttpManager  {
     
   }
   
-  func loginWithParameters2(email:String, password: String, urlString: String, completionHandler: @escaping (_ content: String) -> ())  {
+    func loginWithParameters2(email:String, password: String,token: String, urlString: String, completionHandler: @escaping (_ content: String) -> ())  {
     let myUrl = URL(string: urlString);
     
     
@@ -59,7 +59,7 @@ class HttpManager  {
     
     request.httpMethod = "POST"
     request.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-    let token = "1PSGOuwm9lyxteECNfZhX_yszFmWFQK1GdSv3q44wqg"
+    
     let postString = "sign_in_form[_token]=" + token + "&sign_in_form[email]="+email+"&sign_in_form[password]="+password+"&sign_in_form[submit]"
     request.httpBody = postString.data(using: String.Encoding.utf8);
     let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?)  in

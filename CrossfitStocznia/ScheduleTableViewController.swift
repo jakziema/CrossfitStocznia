@@ -14,7 +14,7 @@ class ScheduleTableViewController: UITableViewController {
   
   var sections = [Section]()
   
-  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-24&date_next=2016-11-07&date_start=2016-10-31&date_end=2016-11-06"
+  let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2017-03-27&date_next=2017-04-10&date_start=2017-04-03&date_end=2017-04-09"
   
   override func viewDidLoad() {
     super.viewDidLoad()

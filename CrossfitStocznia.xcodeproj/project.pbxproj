@@ -94,15 +94,11 @@
 				88485DF11DA507A5008B0BA4 /* logo-red.png */,
 				881104B41CECB79400CE1758 /* Info.plist */,
 				88485DF31DA508E0008B0BA4 /* stocznia.jpg */,
-				88AC1EE21DB5288900D5DAB0 /* Section.swift */,
-				881104BA1CECD9E000CE1758 /* Training.swift */,
+				889194211E96923700AEE171 /* Model */,
 				881104C01CECDE7200CE1758 /* TrainingCell.xib */,
 				881104C21CECE03000CE1758 /* TrainingTableViewCell.swift */,
-				88485DEF1DA4FFF0008B0BA4 /* LoginViewController.swift */,
-				88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */,
+				889194221E96926100AEE171 /* Controllers */,
 				88485DFD1DA54B78008B0BA4 /* HttpManager.swift */,
-				8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */,
-				88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */,
 				8881C9AA1DABA286003A00C5 /* PopupView */,
 			);
 			path = CrossfitStocznia;
@@ -116,6 +112,26 @@
 				8881C9AD1DABB202003A00C5 /* GradientView.swift */,
 			);
 			name = PopupView;
+			sourceTree = "<group>";
+		};
+		889194211E96923700AEE171 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				88AC1EE21DB5288900D5DAB0 /* Section.swift */,
+				881104BA1CECD9E000CE1758 /* Training.swift */,
+				88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		889194221E96926100AEE171 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				88485DEF1DA4FFF0008B0BA4 /* LoginViewController.swift */,
+				88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */,
+				8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		B193EB847BAB322093CA45AF /* Pods */ = {

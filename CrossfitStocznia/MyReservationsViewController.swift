@@ -8,6 +8,7 @@
 
 import UIKit
 import HTMLReader
+import SwiftSoup
 
 class MyReservationsViewController: UIViewController {
   
@@ -43,10 +44,23 @@ class MyReservationsViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
     
-    func getTokenValue() {
+    func getTokenValue() -> String {
+        
+        do {
         let myHTMLString = getContent(ofHTML: "http://crossfitstocznia.reservante.pl/auth").trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
         
-        print("Zawartosc html: \(myHTMLString)")
+        let doc: Document = try! SwiftSoup.parse(myHTMLString)
+        let form: Elements = try! doc.getElementsByTag("form")
+        let input = try! form.select("input").first()!
+        let tokenValue = try! input.attr("value")
+            
+       return tokenValue
+
+        } catch Exception.Error(let type, let message){
+            print(message)
+        }catch{
+            print("error")
+        }
     }
   
   
