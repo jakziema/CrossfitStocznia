@@ -125,7 +125,6 @@ class ScheduleTableViewController: UITableViewController {
             
             zmienna  = true
             
-            
             if (index == 0) {
                 let section = Section(sectionTitle: date)
                 sections.append(section)
@@ -144,17 +143,11 @@ class ScheduleTableViewController: UITableViewController {
                     }
                     
                 }
-                
-                
                 if(zmienna){
                     sections.append(Section(sectionTitle: date))
                     
                 }
-                
             }
-            
-            
-            
         }
         
         
