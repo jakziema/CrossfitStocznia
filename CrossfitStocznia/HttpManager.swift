@@ -29,7 +29,7 @@ class HttpManager  {
             
             if error != nil
             {
-                print("error=\(error)")
+                print("error=\(String(describing: error))")
                 return
             }
             
