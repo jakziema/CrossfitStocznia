@@ -112,7 +112,7 @@ class ScheduleTableViewController: UITableViewController {
             
             
             
-            //trainings.sort(by: { $0.dateAsDateType < $1.dateAsDateType })
+            
             //     trainings.append(training)
             
             //sections.append(Section(sectionTitle: date, sectionTrainings: [training]))
@@ -120,7 +120,8 @@ class ScheduleTableViewController: UITableViewController {
             zmienna  = true
             
             if (index == 0) {
-                let section = Section(sectionTitle: date)
+                let section = Section(sectionTitle: date, sectionDateAsType: training.dateAsDateType)
+                sections.sort(by: { $0.sectionDateAsType < $1.sectionDateAsType })
                 sections.append(section)
                 
                 section.sectionTrainings.append(training)
@@ -130,7 +131,7 @@ class ScheduleTableViewController: UITableViewController {
                 for section in sections {
                     if (section.sectionTitle == date) {
                         zmienna =  false
-                        
+                        sections.sort(by: { $0.sectionDateAsType < $1.sectionDateAsType })
                         section.sectionTrainings.append(training)
                         
                         break;
@@ -138,7 +139,9 @@ class ScheduleTableViewController: UITableViewController {
                     
                 }
                 if(zmienna){
-                    sections.append(Section(sectionTitle: date))
+                    
+                    sections.sort(by: { $0.sectionDateAsType < $1.sectionDateAsType })
+                    sections.append(Section(sectionTitle: date, sectionDateAsType: training.dateAsDateType))
                     
                 }
             }
