@@ -16,6 +16,11 @@ class ScheduleTableViewController: UITableViewController {
     
     let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2017-03-27&date_next=2017-04-10&date_start=2017-04-03&date_end=2017-04-09"
     
+    //http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2017-04-03&date_next=2017-04-17&date_start=2017-04-10&date_end=2017-04-16
+    
+    //http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=(data z poprzedniego poniedzialku)&date_next=(data następnego poniedzałku)&date_start=(dzisiejszy dzien)&date_end=koniec tygodnia
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,45 +30,34 @@ class ScheduleTableViewController: UITableViewController {
         let cellNib = UINib(nibName: TableViewCellIdentifiers.trainingCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.trainingCell)
         
-        let data = parseJSON(performRequest(calendarURL)!)
+        let data = parseJSON(performRequest(getPresentCalendarURL())!)
         sections = parseArraysOfDictionaries(data!)
         
         tableView.reloadData()
         
+        print(getPresentCalendarURL())
+        
     }
     
-    
+    //getting classes for two upcoming weeks
     func getPresentCalendarURL()-> String {
         var calendarURL = ""
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        let firstDayOfTheWeek = Date()
-        let lastDayOfTheWeek = firstDayOfTheWeek.addingTimeInterval(7 * 24 * 60 * 60)
+        let today = Date()
+        let weekLater = today.addingTimeInterval(7 * 24 * 60 * 60)
+        let twoWeeksLater = today.addingTimeInterval(14 * 24 * 60 * 60)
+        let weekEarlier = today.addingTimeInterval(-7 * 24 * 60 * 60)
         
-        calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-10&date_next=2016-10-24&date_start=\(dateFormatter.string(from: firstDayOfTheWeek))&date_end=\(dateFormatter.string(from: lastDayOfTheWeek))"
+        calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=\(dateFormatter.string(from: weekEarlier))&date_next=\(dateFormatter.string(from: twoWeeksLater))&date_start=\(dateFormatter.string(from: today))&date_end=\(dateFormatter.string(from: weekLater))"
         
-        print(calendarURL)
         
         return calendarURL
     }
     
-    func getNewCalendarURL() -> String {
-        
-        var calendarURL = ""
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        
-        let firstDayOfTheWeek = Date().addingTimeInterval(7 * 24 * 60 * 60)
-        let lastDayOfTheWeek = firstDayOfTheWeek.addingTimeInterval(7 * 24 * 60 * 60)
-        
-        calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2016-10-10&date_next=2016-10-24&date_start=\(dateFormatter.string(from: firstDayOfTheWeek))&date_end=\(dateFormatter.string(from: lastDayOfTheWeek))"
-        
-        
-        return calendarURL
-    }
+
     
     
     func performRequest(_ stringURL: String) -> String? {
@@ -259,6 +253,13 @@ class ScheduleTableViewController: UITableViewController {
         }
         
     }
+    
+    /**
+     Converting date as String in format: yyyy_MM_dd_HH_mm to Date type
+     
+     - parameter dateString:  Date as String type
+     - returns: DateString as Date type
+     */
     
     func fromStringToDate(dateString: String) -> Date {
         let dateFormatter = DateFormatter()
