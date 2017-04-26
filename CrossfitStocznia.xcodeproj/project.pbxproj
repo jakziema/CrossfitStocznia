@@ -26,6 +26,7 @@
 		8881C9AE1DABB202003A00C5 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8881C9AD1DABB202003A00C5 /* GradientView.swift */; };
 		889194611E9817D300AEE171 /* EndpointsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889194601E9817D300AEE171 /* EndpointsConstants.swift */; };
 		88AC1EE31DB5288900D5DAB0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AC1EE21DB5288900D5DAB0 /* Section.swift */; };
+		956BB00B1EB0B6F300970566 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956BB00A1EB0B6F300970566 /* Booking.swift */; };
 		E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		8881C9AD1DABB202003A00C5 /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		889194601E9817D300AEE171 /* EndpointsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointsConstants.swift; sourceTree = "<group>"; };
 		88AC1EE21DB5288900D5DAB0 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		956BB00A1EB0B6F300970566 /* Booking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.release.xcconfig"; sourceTree = "<group>"; };
 		F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				88AC1EE21DB5288900D5DAB0 /* Section.swift */,
 				881104BA1CECD9E000CE1758 /* Training.swift */,
 				88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */,
+				956BB00A1EB0B6F300970566 /* Booking.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -242,7 +245,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7B6192AABF11A61C2457CE2C /* [CP] Embed Pods Frameworks */ = {
@@ -291,6 +294,7 @@
 				889194611E9817D300AEE171 /* EndpointsConstants.swift in Sources */,
 				88738BF71DA7B9D0008C8AAC /* ParsedTraining.swift in Sources */,
 				88485DFC1DA53109008B0BA4 /* MyReservationsViewController.swift in Sources */,
+				956BB00B1EB0B6F300970566 /* Booking.swift in Sources */,
 				881104BB1CECD9E000CE1758 /* Training.swift in Sources */,
 				88AC1EE31DB5288900D5DAB0 /* Section.swift in Sources */,
 				88485DF01DA4FFF0008B0BA4 /* LoginViewController.swift in Sources */,

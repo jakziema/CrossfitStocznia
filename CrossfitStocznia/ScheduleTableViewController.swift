@@ -11,14 +11,7 @@ import UIKit
 class ScheduleTableViewController: UITableViewController {
     
     var trainings = [Training]()
-    
     var sections = [Section]()
-    
-    let calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2017-03-27&date_next=2017-04-10&date_start=2017-04-03&date_end=2017-04-09"
-    
-    //http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=2017-04-03&date_next=2017-04-17&date_start=2017-04-10&date_end=2017-04-16
-    
-    //http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=(data z poprzedniego poniedzialku)&date_next=(data następnego poniedzałku)&date_start=(dzisiejszy dzien)&date_end=koniec tygodnia
     
     
     override func viewDidLoad() {
@@ -35,7 +28,7 @@ class ScheduleTableViewController: UITableViewController {
         
         tableView.reloadData()
         
-        print(getPresentCalendarURL())
+        
         
     }
     

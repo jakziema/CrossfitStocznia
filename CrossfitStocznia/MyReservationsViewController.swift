@@ -20,8 +20,16 @@ class MyReservationsViewController: UIViewController {
         
         super.viewDidLoad()
         
-        parseHTML(html: getMyReservations(fromHTML: EndpointsConstants.MyReservationsEndpoint.baseURL))
         
+        DispatchQueue.global(qos: .userInitiated).async {
+           let hrefs = self.parseHTML(html: self.getMyReservations(fromHTML: EndpointsConstants.MyReservationsEndpoint.baseURL))
+            
+            DispatchQueue.main.async {
+                for href in hrefs {
+                    print(href)
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -48,15 +56,33 @@ class MyReservationsViewController: UIViewController {
         }
     }
     
+   
     
-    func parseHTML(html: String) {
+    
+    func parseHTML(html: String)-> Set<String> {
+        
+        let duzaSalaString = "http://crossfitstocznia.reservante.pl/calendars/665"
+        let malaSalaString = "http://crossfitstocznia.reservante.pl/calendars/666"
+        
+        var hrefs = Set<String>()
+        
         let htmlDocument = HTMLDocument(string: html)
         for node in htmlDocument.nodes(matchingSelector: "table tbody tr td a ").dropFirst() {
             
             let link = node.attributes
             let linkToReservations = EndpointsConstants.MainEndpoint.baseURL + link["href"]!
-            print(linkToReservations)
+            hrefs.insert(linkToReservations)
         }
+        
+        if hrefs.contains(duzaSalaString) {
+                hrefs.remove(duzaSalaString)
+        } else if hrefs.contains(malaSalaString) {
+            hrefs.remove(malaSalaString)
+        }
+        
+        
+        
+        return hrefs
     }
     
     func getMyReservations(fromHTML urlString: String) -> String {
@@ -87,6 +113,14 @@ class MyReservationsViewController: UIViewController {
             return "Error: \(error)"
         }
     }
+    
+
+    func parseHrefAsBooking(href: String) {
+        let myHTMLString = getContent(ofHTML: href)
+        let doc: Document = try! SwiftSoup.parse(myHTMLString)
+    }
+    
+    
     
     
     
