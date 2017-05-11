@@ -27,6 +27,7 @@
 		889194611E9817D300AEE171 /* EndpointsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889194601E9817D300AEE171 /* EndpointsConstants.swift */; };
 		88AC1EE31DB5288900D5DAB0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AC1EE21DB5288900D5DAB0 /* Section.swift */; };
 		956BB00B1EB0B6F300970566 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956BB00A1EB0B6F300970566 /* Booking.swift */; };
+		959D7B1A1EC4B268008E51CF /* success.aif in Resources */ = {isa = PBXBuildFile; fileRef = 959D7B191EC4B268008E51CF /* success.aif */; };
 		E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		889194601E9817D300AEE171 /* EndpointsConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EndpointsConstants.swift; sourceTree = "<group>"; };
 		88AC1EE21DB5288900D5DAB0 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		956BB00A1EB0B6F300970566 /* Booking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
+		959D7B191EC4B268008E51CF /* success.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.aif; sourceTree = "<group>"; };
 		E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.release.xcconfig"; sourceTree = "<group>"; };
 		F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +75,7 @@
 		8811049C1CECB79400CE1758 = {
 			isa = PBXGroup;
 			children = (
+				959D7B191EC4B268008E51CF /* success.aif */,
 				881104A71CECB79400CE1758 /* CrossfitStocznia */,
 				881104A61CECB79400CE1758 /* Products */,
 				B193EB847BAB322093CA45AF /* Pods */,
@@ -221,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				959D7B1A1EC4B268008E51CF /* success.aif in Resources */,
 				881104B31CECB79400CE1758 /* LaunchScreen.storyboard in Resources */,
 				88485DF21DA507A5008B0BA4 /* logo-red.png in Resources */,
 				881104C11CECDE7200CE1758 /* TrainingCell.xib in Resources */,

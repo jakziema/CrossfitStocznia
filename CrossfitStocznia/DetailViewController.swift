@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVFoundation
+
 
 class DetailViewController: UIViewController {
   
@@ -19,6 +21,12 @@ class DetailViewController: UIViewController {
   @IBOutlet weak var trainingHourLabel: UILabel!
   @IBOutlet weak var trainingDateLabel: UILabel!
   @IBOutlet weak var makeABookingButton: UIButton!
+    
+    var successSoundEffect: AVAudioPlayer!
+    
+    
+    
+    
   
   
   required init?(coder aDecoder: NSCoder) {
@@ -41,6 +49,20 @@ class DetailViewController: UIViewController {
     request.httpBody = postString.data(using: String.Encoding.utf8);
     
     let task = URLSession.shared.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+        
+        let path = Bundle.main.path(forResource: "success.aif", ofType: nil)!
+        let url = URL(fileURLWithPath: path)
+        
+        
+        do {
+            let sound = try AVAudioPlayer(contentsOf: url)
+            self.successSoundEffect = sound
+            sound.play()
+        } catch {
+            print("Couldn't play sound")
+        }
+        
+
       if error != nil {
         return
       }
@@ -57,6 +79,8 @@ class DetailViewController: UIViewController {
     
     //rounded corners
     popupView.layer.cornerRadius = 10
+    
+    
     
     
     switch training.coachName {

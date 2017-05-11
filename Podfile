@@ -10,5 +10,6 @@ target 'CrossfitStocznia' do
    pod 'SwiftKeychainWrapper', '~> 3.0'
    pod 'Alamofire', '~> 4.0'
    pod "SwiftSoup"
+   pod 'SCLAlertView', '~> 0.7'
 
 end

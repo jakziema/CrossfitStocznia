@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCLAlertView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftKeychainWrapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,7 +37,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>25313E9F6EAE4153DCF0AD18BFE0BA08</key>
+		<key>102C09C49018EF5452104EC7072D30CD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1C38BD6223BF7A8AAEBD0AE57668E18D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -42,7 +52,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D96871FE6EE370FCA1FA66D8DA8F960</key>
+		<key>4CAC6267E955CCFABC39AF174771982D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +62,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BCE72A3B5E69EBB01A711256D10D278D</key>
+		<key>B79B7E7B515B206AE4759C26236FA73A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
