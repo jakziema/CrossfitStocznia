@@ -184,7 +184,10 @@ class ScheduleTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections[section].sectionTitle
+        let date = sections[section].sectionTitle
+        let nameOfTheWeek = getNameOfTheWeekFrom(dateAsString: date)!
+        let title = date + "(\(nameOfTheWeek))"
+        return title
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

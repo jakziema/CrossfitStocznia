@@ -90,7 +90,7 @@ class DetailViewController: UIViewController {
     coachImage.layer.cornerRadius = coachImage.frame.size.width / 2
     coachImage.clipsToBounds = true
     
-    view.addSubview(coachImage)
+    
     
     //Gesture Recognizing outside popup
     let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(close))
