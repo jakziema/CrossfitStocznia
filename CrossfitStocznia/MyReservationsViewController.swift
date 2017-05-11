@@ -53,7 +53,6 @@ class MyReservationsViewController: UIViewController {
         
         for href in hrefs {
             var id = href.components(separatedBy: "show/")[1]
-            print(id)
             ids.append(id)
         }
         

@@ -26,19 +26,29 @@ class ScheduleTableViewController: UITableViewController {
         
         let cellNib = UINib(nibName: TableViewCellIdentifiers.trainingCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.trainingCell)
-        
+       
+        /**
         DispatchQueue.global(qos: .userInitiated).async {
-            let hrefs = self.parseHTML(html: self.getMyReservations(fromHTML: EndpointsConstants.MyReservationsEndpoint.baseURL))
-            
+         
+        
             DispatchQueue.main.async {
                 self.bookings = self.getTrainingsIDs(hrefs: hrefs)
-                print(self.bookings[0])
+                print("Zaladowano" + self.bookings[0])
+                
             }
         }
+ */
+        let hrefs = self.parseHTML(html: self.getMyReservations(fromHTML: EndpointsConstants.MyReservationsEndpoint.baseURL))
+        self.bookings = self.getTrainingsIDs(hrefs: hrefs)
+        for id in bookings {
+            print(id)
+        }
+        
         
         
         let data = parseJSON(performRequest(getPresentCalendarURL())!)
         sections = parseArraysOfDictionaries(data!)
+        
         
         tableView.reloadData()
         
@@ -105,6 +115,15 @@ class ScheduleTableViewController: UITableViewController {
             let hour = dictionary["hour"] as! String
             let date = dictionary["date"] as! String
             let dateID  = dictionary["date_id"] as! String
+            let orders = dictionary["orders"] as! [[String: Any]]
+            
+            for order in orders {
+                if let id  = order["id"] {
+                    for booking in bookings {
+                        print(id)
+                    }
+                }
+            }
             training.dateID = dateID
             training.placesLeft = dictionary["places"] as! Int
             training.bgColor = dictionary["bg"] as! String
@@ -115,15 +134,11 @@ class ScheduleTableViewController: UITableViewController {
             training.coachName = getName(OfTheCoach: title)
             training.date = date
             
-            training.id = dictionary["id"] as! String
+            //training.id = dictionary["id"] as! String
             training.dateAsDateType = fromStringToDate(dateString: dateID)
             
+            print(training.booked)
             
-            
-            
-            //     trainings.append(training)
-            
-            //sections.append(Section(sectionTitle: date, sectionTrainings: [training]))
             
             zmienna  = true
             
@@ -146,6 +161,7 @@ class ScheduleTableViewController: UITableViewController {
                     }
                     
                 }
+                
                 if(zmienna){
                     
                     sections.sort(by: { $0.sectionDateAsType < $1.sectionDateAsType })
@@ -154,6 +170,8 @@ class ScheduleTableViewController: UITableViewController {
                 }
             }
         }
+        
+        
         
         
         
@@ -193,13 +211,6 @@ class ScheduleTableViewController: UITableViewController {
         cell.backgroundColor = UIColor(hexString: training.bgColor)
         cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
         cell.dateLabel.text = "Data: " + training.date
-        
-        for id in bookings {
-            if id == training.id {
-                print("\(id) == \(training.id)")
-                cell.cancelButton.isHidden = false
-            }
-        }
         
         
         
@@ -343,7 +354,7 @@ class ScheduleTableViewController: UITableViewController {
         
         for href in hrefs {
             var id = href.components(separatedBy: "show/")[1]
-            print(id)
+            
             ids.append(id)
         }
         
