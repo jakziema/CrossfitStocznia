@@ -59,13 +59,6 @@ class DetailViewController: UIViewController {
     popupView.layer.cornerRadius = 10
     
     
-    
-    if training.coachName == "Adam" {
-        
-    } else if training.coachName == "Krzysiek" {
-        coachImage.image = UIImage(named: "krzysztof-malkowski")
-    }
-    
     switch training.coachName {
     case "Adam":
         coachImage.image =  UIImage(named:"adam-borkowski")
@@ -86,11 +79,11 @@ class DetailViewController: UIViewController {
     case "Paweł":
         coachImage.image = UIImage(named: "pawel-szuba")
     default:
-        coachImage.image = UIImage(named: "adam-borkowski")
+        coachImage.image = UIImage(named: "logo-red")
     }
     
-    coachImage.layer.cornerRadius = coachImage.frame.size.width / 2
-    coachImage.clipsToBounds = true
+    //coachImage.layer.cornerRadius = coachImage.frame.size.width / 2
+    //coachImage.clipsToBounds = true
     
     
     
