@@ -13,6 +13,7 @@ class TrainingTableViewCell: UITableViewCell {
   @IBOutlet weak var trainingNameLabel: UILabel!
   @IBOutlet weak var placesLeftLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var cancelButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()

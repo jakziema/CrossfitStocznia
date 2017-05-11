@@ -21,15 +21,7 @@ class MyReservationsViewController: UIViewController {
         super.viewDidLoad()
         
         
-        DispatchQueue.global(qos: .userInitiated).async {
-           let hrefs = self.parseHTML(html: self.getMyReservations(fromHTML: EndpointsConstants.MyReservationsEndpoint.baseURL))
-            
-            DispatchQueue.main.async {
-                for href in hrefs {
-                    print(href)
-                }
-            }
-        }
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,6 +48,17 @@ class MyReservationsViewController: UIViewController {
         }
     }
     
+    func getTrainingsIDs(hrefs: Set<String>)-> [String] {
+        var ids = [String]()
+        
+        for href in hrefs {
+            var id = href.components(separatedBy: "show/")[1]
+            print(id)
+            ids.append(id)
+        }
+        
+        return ids
+    }
    
     
     
@@ -119,6 +122,11 @@ class MyReservationsViewController: UIViewController {
         let myHTMLString = getContent(ofHTML: href)
         let doc: Document = try! SwiftSoup.parse(myHTMLString)
     }
+    
+    
+    
+    
+    
     
     
     

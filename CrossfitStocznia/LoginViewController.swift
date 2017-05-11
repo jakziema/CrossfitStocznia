@@ -19,6 +19,8 @@ class LoginViewController: UIViewController {
     let loginMethod = MyReservationsViewController()
     var crossfitStoczniAuth = EndpointsConstants.LoginEndpoint.baseURL
     
+    
+    
     @IBAction func login() {
         
         httpManager.loginWithParameters2(email: loginTextField.text!, password: passwordTextField.text!, token: loginMethod.getTokenValue(), urlString: crossfitStoczniAuth){content in

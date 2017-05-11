@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import HTMLReader
+import SwiftSoup
+
 
 class ScheduleTableViewController: UITableViewController {
     
     var trainings = [Training]()
     var sections = [Section]()
+    var bookings = [String]()
     
     
     override func viewDidLoad() {
@@ -22,6 +26,16 @@ class ScheduleTableViewController: UITableViewController {
         
         let cellNib = UINib(nibName: TableViewCellIdentifiers.trainingCell, bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: TableViewCellIdentifiers.trainingCell)
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            let hrefs = self.parseHTML(html: self.getMyReservations(fromHTML: EndpointsConstants.MyReservationsEndpoint.baseURL))
+            
+            DispatchQueue.main.async {
+                self.bookings = self.getTrainingsIDs(hrefs: hrefs)
+                print(self.bookings[0])
+            }
+        }
+        
         
         let data = parseJSON(performRequest(getPresentCalendarURL())!)
         sections = parseArraysOfDictionaries(data!)
@@ -180,6 +194,15 @@ class ScheduleTableViewController: UITableViewController {
         cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
         cell.dateLabel.text = "Data: " + training.date
         
+        for id in bookings {
+            if id == training.id {
+                print("\(id) == \(training.id)")
+                cell.cancelButton.isHidden = false
+            }
+        }
+        
+        
+        
         return cell
         
     }
@@ -311,6 +334,79 @@ class ScheduleTableViewController: UITableViewController {
         return dateFormatter.date(from: dateString)!
         
     }
+    
+    
+    //MARK: WORKING WITH HREFS
+    
+    func getTrainingsIDs(hrefs: Set<String>)-> [String] {
+        var ids = [String]()
+        
+        for href in hrefs {
+            var id = href.components(separatedBy: "show/")[1]
+            print(id)
+            ids.append(id)
+        }
+        
+        return ids
+    }
+    
+    
+    
+    func parseHTML(html: String)-> Set<String> {
+        
+        let duzaSalaString = "http://crossfitstocznia.reservante.pl/calendars/665"
+        let malaSalaString = "http://crossfitstocznia.reservante.pl/calendars/666"
+        
+        var hrefs = Set<String>()
+        
+        let htmlDocument = HTMLDocument(string: html)
+        for node in htmlDocument.nodes(matchingSelector: "table tbody tr td a ").dropFirst() {
+            
+            let link = node.attributes
+            let linkToReservations = EndpointsConstants.MainEndpoint.baseURL + link["href"]!
+            hrefs.insert(linkToReservations)
+        }
+        
+        if hrefs.contains(duzaSalaString) {
+            hrefs.remove(duzaSalaString)
+        } else if hrefs.contains(malaSalaString) {
+            hrefs.remove(malaSalaString)
+        }
+        
+        
+        
+        return hrefs
+    }
+    
+    func getMyReservations(fromHTML urlString: String) -> String {
+        
+        let myHTMLString = getContent(ofHTML: urlString)
+        var result2 = ""
+        
+        if let  lowerBound = myHTMLString.range(of: "<h2>Archiwum rezerwacji"), let upperBound = myHTMLString.range(of: "Aktualne rezerwacje</h2>"){
+            
+            let result = myHTMLString.substring(to: lowerBound.lowerBound)
+            
+            result2 = result.substring(from: upperBound.upperBound)
+            
+            return result2
+        }
+        
+        return result2
+        
+    }
+    
+    
+    func getContent(ofHTML urlString: String) -> String {
+        do  {
+            
+            let htmlString = try String(contentsOf: URL(string: urlString)!, encoding: .utf8)
+            return htmlString.trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
+        } catch let error {
+            return "Error: \(error)"
+        }
+    }
+    
     
 }
 
