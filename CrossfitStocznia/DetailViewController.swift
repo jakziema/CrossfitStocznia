@@ -83,6 +83,8 @@ class DetailViewController: UIViewController {
         coachImage.image =  UIImage(named:"marcin-leszkowicz")
     case "Adrian":
         coachImage.image =  UIImage(named:"adrian-lopatynski")
+    case "Paweł":
+        coachImage.image = UIImage(named: "pawel-szuba")
     default:
         coachImage.image = UIImage(named: "adam-borkowski")
     }

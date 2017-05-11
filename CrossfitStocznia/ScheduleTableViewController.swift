@@ -96,7 +96,8 @@ class ScheduleTableViewController: UITableViewController {
             training.bgColor = dictionary["bg"] as! String
             training.hour = String(hour.characters.prefix(5))
             training.titleWithName = title
-            training.title = deleteName(ofTheCoach: title)
+            //training.title = deleteName(ofTheCoach: title)
+            training.title = prepareTitle(text: title)
             training.coachName = getName(OfTheCoach: title)
             training.date = date
             
@@ -222,6 +223,49 @@ class ScheduleTableViewController: UITableViewController {
         var title = ""
         if let range = text.range(of: "(") {
             title =  text.substring(to: range.lowerBound)
+        }
+        
+        return title
+    }
+    
+    func prepareTitle(text: String) -> String {
+        var title = ""
+        
+        if text.contains("Runmageddon") {
+            title = "Runmageddon"
+            
+        } else if text.contains("Gymnastics C1+2") || text.contains("Gymnastics Class 1+2") {
+            title = "Gymnastics C1+2"
+        }  else if text.contains("Gymnastics C2"){
+            title = "Gymnastics C2"
+        } else if text.contains("Class 1 & 2") || text.contains("Class 1+2"){
+            title = "Class 1+2"
+        } else if text.contains("OLY Class 1") {
+            title = "OLY Class 1"
+        } else if text.contains("Class 1") {
+            title = "Class 1"
+        } else if text.contains("Class 2") {
+            title =  "Class 2"
+        } else if text.contains("Class 3") {
+            title = "Class 3"
+        }  else if text.contains("OPEN GYM") {
+            title = "OPEN GYM"
+        } else if text.contains("OLY Class2") {
+            title = "OLY Class2"
+        }   else if text.contains("WOD C1+2") {
+            title = "WOD C1+2"
+        } else if text.contains("WOD C1") {
+            title = "WOD C1"
+        } else if text.contains("Joga") {
+            title = "Joga"
+        } else if text.contains("Team") {
+            title = "TEAM WOD"
+        } else if text.contains("Aktywuj") {
+            title = "Aktywuj się C1+2"
+        } else if text.contains("Mobility") {
+            title = "Mobility"
+        } else {
+            title = "Trening"
         }
         
         return title
