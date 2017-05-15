@@ -13,5 +13,4 @@ target 'CrossfitStocznia' do
    pod 'Gloss', '~> 1.2'
 
 
-
 end

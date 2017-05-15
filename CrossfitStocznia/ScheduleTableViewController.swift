@@ -71,6 +71,7 @@ class ScheduleTableViewController: UITableViewController {
         calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=\(dateFormatter.string(from: weekEarlier))&date_next=\(dateFormatter.string(from: twoWeeksLater))&date_start=\(dateFormatter.string(from: today))&date_end=\(dateFormatter.string(from: weekLater))"
         
         
+        print("PRESENT CALENDAR URL:" + calendarURL)
         return calendarURL
     }
     
@@ -89,7 +90,9 @@ class ScheduleTableViewController: UITableViewController {
     
     func parseJSON(_ jsonString: String) -> [[String:AnyObject]]? {
         guard let data = jsonString.data(using: String.Encoding.utf8)
-            else {return nil }
+            else {
+                return nil
+        }
         
         do {
             return try JSONSerialization.jsonObject(with: data, options: []) as? [[String:AnyObject]]
@@ -99,6 +102,8 @@ class ScheduleTableViewController: UITableViewController {
         }
     }
     
+    
+    
     func parseArraysOfDictionaries(_ array: [[String:AnyObject]])  -> [Section] {
         
         //    var trainings = [Training]()
@@ -106,24 +111,28 @@ class ScheduleTableViewController: UITableViewController {
         var sections = [Section]()
         var zmienna = true
         
-        
-        
         for (index,dictionary) in array.enumerated() {
+            
+            
             
             let training = Training()
             let title  = dictionary["title"] as! String
             let hour = dictionary["hour"] as! String
             let date = dictionary["date"] as! String
             let dateID  = dictionary["date_id"] as! String
-            let orders = dictionary["orders"] as! [[String: Any]]
-            
-            for order in orders {
-                if let id  = order["id"] {
-                    for booking in bookings {
-                        print(id)
+            if let orders = dictionary["orders"] as? [[String: Any]] {
+                for order in orders {
+                    if let id = order["id"] as? String {
+                        print("ID: " + id )
                     }
                 }
             }
+            
+            
+            
+            
+            //let orders_2 = dictionary["orders_2"] as! [[String: Any]]
+            //let orders_5 = dictionary["orders_5"] as! [[String:Any]]
             training.dateID = dateID
             training.placesLeft = dictionary["places"] as! Int
             training.bgColor = dictionary["bg"] as! String
@@ -137,7 +146,6 @@ class ScheduleTableViewController: UITableViewController {
             //training.id = dictionary["id"] as! String
             training.dateAsDateType = fromStringToDate(dateString: dateID)
             
-            print(training.booked)
             
             
             zmienna  = true
