@@ -10,7 +10,8 @@ target 'CrossfitStocznia' do
    pod 'SwiftKeychainWrapper', '~> 3.0'
    pod 'Alamofire', '~> 4.0'
    pod "SwiftSoup"
-   pod 'SwiftyJSON', '~> 3.1'
+   pod 'Gloss', '~> 1.2'
+
 
 
 end
