@@ -217,6 +217,7 @@ class SearchViewController: UIViewController {
                 sections.append(section)
                 
                 section.sectionTrainings.append(training)
+                section.sectionTrainings.sort(by: { $0.hour < $1.hour})
                 
             } else {
                 
@@ -225,6 +226,7 @@ class SearchViewController: UIViewController {
                         zmienna =  false
                         sections.sort(by: { $0.sectionDateAsType < $1.sectionDateAsType })
                         section.sectionTrainings.append(training)
+                        section.sectionTrainings.sort(by: { $0.hour < $1.hour})
                         
                         break;
                     }
