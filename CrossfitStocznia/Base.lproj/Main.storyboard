@@ -114,6 +114,10 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IOS-kT-Jf5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="QMv-yw-Qf5" id="FSy-3d-Q16"/>
+                                    <outlet property="delegate" destination="QMv-yw-Qf5" id="mJV-CB-5BH"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gF-Ge-KBv">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
