@@ -170,6 +170,9 @@ class SearchViewController: UIViewController {
         var sections = [Section]()
         var zmienna = true
         
+        var cancelledOrdersArray = [Order]()
+        var bookedOrdersArray = [Order]()
+        
         for (index,dictionary) in array.enumerated() {
             
             
@@ -183,7 +186,12 @@ class SearchViewController: UIViewController {
                 for order2 in orders {
                     
                     if let id = order2["id"] as? String, let user_id = order2["user_id"] as? String {
-                        print("ID: \(id) USER ID: \(user_id)" )
+                        
+                        let order = Order()
+                        order.id = id
+                        order.user_id = user_id
+                        
+                        bookedOrdersArray.append(order)
                         
                     }
                 }
@@ -193,7 +201,20 @@ class SearchViewController: UIViewController {
             
             
             //let orders_2 = dictionary["orders_2"] as! [[String: Any]]
-            //let orders_5 = dictionary["orders_5"] as! [[String:Any]]
+            if let cancelledOrders = dictionary["orders_5"] as? [[String:Any]] {
+                for order in cancelledOrders {
+                    if let id = order["id"] as? String, let user_id = order["user_id"] as? String {
+                        
+                        let order = Order()
+                        order.id = id
+                        order.user_id = user_id
+                        
+                        cancelledOrdersArray.append(order)
+                        
+                    }
+                }
+            }
+            
             training.dateID = dateID
             training.placesLeft = dictionary["places"] as! Int
             training.bgColor = dictionary["bg"] as! String
@@ -206,6 +227,10 @@ class SearchViewController: UIViewController {
             
             //training.id = dictionary["id"] as! String
             training.dateAsDateType = fromStringToDate(dateString: dateID)
+            
+            
+            training.cancelledOrders = cancelledOrdersArray
+            training.orders = bookedOrdersArray
             
             
             
