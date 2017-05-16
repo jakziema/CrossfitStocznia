@@ -62,8 +62,15 @@ class SearchViewController: UIViewController {
         sections = parseArraysOfDictionaries(data!)
         
         
+        
         tableView.reloadData()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        customizeAppearanceOfTheTopBar()
+        
+        presentedViewController?.modalPresentationCapturesStatusBarAppearance = true
     }
     
     func performSearch(segment: Int) {
@@ -71,6 +78,20 @@ class SearchViewController: UIViewController {
         let data = parseJSON(performRequest(getPresentCalendarURL(segment: segment))!)
         sections = parseArraysOfDictionaries(data!)
         tableView.reloadData()
+        
+    }
+    
+    func customizeAppearanceOfTheTopBar() {
+        
+        let barTintColor = UIColor(red: 252/255, green: 48/255, blue: 28/255, alpha: 1)
+        //let barTintColor = UIColor.black
+        UINavigationBar.appearance().barTintColor = barTintColor
+        UINavigationBar.appearance().isTranslucent = false
+        UIApplication.shared.statusBarView?.backgroundColor = barTintColor
+        UISegmentedControl.appearance().tintColor = .white
+        
+
+        
         
     }
     
@@ -440,6 +461,7 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let training = sections[indexPath.section].sectionTrainings[indexPath.row]
         cell.trainingNameLabel.text = training.titleWithName
         cell.backgroundColor = UIColor(hexString: training.bgColor)
+        cell.hourLabel.text = training.hour
         cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
         cell.dateLabel.text = "Data: " + training.date
         
