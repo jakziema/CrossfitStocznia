@@ -22,6 +22,8 @@ class Training {
     var id = ""
     var dateAsDateType: Date = Date()
     var booked: Bool = false
+    var orders = [Order]()
+    var cancelledOrders = [Order]()
     
     
     

@@ -41,7 +41,7 @@ class ScheduleTableViewController: UITableViewController {
         let hrefs = self.parseHTML(html: self.getMyReservations(fromHTML: EndpointsConstants.MyReservationsEndpoint.baseURL))
         self.bookings = self.getTrainingsIDs(hrefs: hrefs)
         for id in bookings {
-            print(id)
+            print("MOJA REZERWACJA: \(id)")
         }
         
         
@@ -81,6 +81,7 @@ class ScheduleTableViewController: UITableViewController {
     func performRequest(_ stringURL: String) -> String? {
         let url = URL(string: stringURL)!
         do {
+            
             return try String(contentsOf: url, encoding: String.Encoding.utf8)
         } catch {
             print("Download error: \(error)")
@@ -121,9 +122,11 @@ class ScheduleTableViewController: UITableViewController {
             let date = dictionary["date"] as! String
             let dateID  = dictionary["date_id"] as! String
             if let orders = dictionary["orders"] as? [[String: Any]] {
-                for order in orders {
-                    if let id = order["id"] as? String {
-                        print("ID: " + id )
+                for order2 in orders {
+                    
+                    if let id = order2["id"] as? String, let user_id = order2["user_id"] as? String {
+                        print("ID: \(id) USER ID: \(user_id)" )
+                        
                     }
                 }
             }
@@ -361,7 +364,7 @@ class ScheduleTableViewController: UITableViewController {
         var ids = [String]()
         
         for href in hrefs {
-            var id = href.components(separatedBy: "show/")[1]
+            let id = href.components(separatedBy: "show/")[1]
             
             ids.append(id)
         }
@@ -425,6 +428,9 @@ class ScheduleTableViewController: UITableViewController {
             return "Error: \(error)"
         }
     }
+    
+    
+    
     
     
 }

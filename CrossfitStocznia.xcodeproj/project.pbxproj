@@ -28,8 +28,7 @@
 		88AC1EE31DB5288900D5DAB0 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88AC1EE21DB5288900D5DAB0 /* Section.swift */; };
 		956BB00B1EB0B6F300970566 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956BB00A1EB0B6F300970566 /* Booking.swift */; };
 		959D7B1A1EC4B268008E51CF /* success.aif in Resources */ = {isa = PBXBuildFile; fileRef = 959D7B191EC4B268008E51CF /* success.aif */; };
-		959D7B1C1ECA3D81008E51CF /* TrainingGloss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D7B1B1ECA3D81008E51CF /* TrainingGloss.swift */; };
-		959D7B1E1ECA3F19008E51CF /* OrderGloss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D7B1D1ECA3F19008E51CF /* OrderGloss.swift */; };
+		959D7B221ECA4BC5008E51CF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D7B211ECA4BC5008E51CF /* Order.swift */; };
 		E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,8 +57,7 @@
 		88AC1EE21DB5288900D5DAB0 /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
 		956BB00A1EB0B6F300970566 /* Booking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		959D7B191EC4B268008E51CF /* success.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.aif; sourceTree = "<group>"; };
-		959D7B1B1ECA3D81008E51CF /* TrainingGloss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrainingGloss.swift; sourceTree = "<group>"; };
-		959D7B1D1ECA3F19008E51CF /* OrderGloss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderGloss.swift; sourceTree = "<group>"; };
+		959D7B211ECA4BC5008E51CF /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.release.xcconfig"; sourceTree = "<group>"; };
 		F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -131,10 +129,9 @@
 			children = (
 				88AC1EE21DB5288900D5DAB0 /* Section.swift */,
 				881104BA1CECD9E000CE1758 /* Training.swift */,
-				959D7B1B1ECA3D81008E51CF /* TrainingGloss.swift */,
+				959D7B211ECA4BC5008E51CF /* Order.swift */,
 				88738BF61DA7B9D0008C8AAC /* ParsedTraining.swift */,
 				956BB00A1EB0B6F300970566 /* Booking.swift */,
-				959D7B1D1ECA3F19008E51CF /* OrderGloss.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,7 +297,6 @@
 				8881C9AE1DABB202003A00C5 /* GradientView.swift in Sources */,
 				8874F9621DA67B9C00669E78 /* ScheduleTableViewController.swift in Sources */,
 				881104C31CECE03000CE1758 /* TrainingTableViewCell.swift in Sources */,
-				959D7B1C1ECA3D81008E51CF /* TrainingGloss.swift in Sources */,
 				88485DFE1DA54B78008B0BA4 /* HttpManager.swift in Sources */,
 				889194611E9817D300AEE171 /* EndpointsConstants.swift in Sources */,
 				88738BF71DA7B9D0008C8AAC /* ParsedTraining.swift in Sources */,
@@ -308,9 +304,9 @@
 				956BB00B1EB0B6F300970566 /* Booking.swift in Sources */,
 				881104BB1CECD9E000CE1758 /* Training.swift in Sources */,
 				88AC1EE31DB5288900D5DAB0 /* Section.swift in Sources */,
+				959D7B221ECA4BC5008E51CF /* Order.swift in Sources */,
 				88485DF01DA4FFF0008B0BA4 /* LoginViewController.swift in Sources */,
 				881104A91CECB79400CE1758 /* AppDelegate.swift in Sources */,
-				959D7B1E1ECA3F19008E51CF /* OrderGloss.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -106,8 +106,8 @@ class DetailViewController: UIViewController {
         coachImage.image = UIImage(named: "logo-red")
     }
     
-    //coachImage.layer.cornerRadius = coachImage.frame.size.width / 2
-    //coachImage.clipsToBounds = true
+    coachImage.layer.cornerRadius = coachImage.frame.size.width / 2
+    coachImage.clipsToBounds = true
     
     
     

@@ -52,7 +52,7 @@ class MyReservationsViewController: UIViewController {
         var ids = [String]()
         
         for href in hrefs {
-            var id = href.components(separatedBy: "show/")[1]
+            let id = href.components(separatedBy: "show/")[1]
             ids.append(id)
         }
         
