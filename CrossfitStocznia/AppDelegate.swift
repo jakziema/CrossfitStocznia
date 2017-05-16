@@ -17,9 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
     
+    customizeAppearanceOfTheTopBar()
     
     return true
   }
+    
+    func customizeAppearanceOfTheTopBar() {
+        
+        let barTintColor = UIColor(red: 252/255, green: 48/255, blue: 28/255,
+                                   alpha: 1)
+        
+        UINavigationBar.appearance().barTintColor = barTintColor
+        UINavigationBar.appearance().isTranslucent = false
+        UIApplication.shared.statusBarView?.backgroundColor = barTintColor
+        UISegmentedControl.appearance().tintColor = .white
+        //UIApplication.shared.setStatusBarStyle(.lightContent, animated: true)
+        
+        
+    }
 
   func applicationWillResignActive(_ application: UIApplication) {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -44,5 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
 
+}
+
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
 }
 

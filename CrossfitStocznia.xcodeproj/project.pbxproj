@@ -29,6 +29,7 @@
 		956BB00B1EB0B6F300970566 /* Booking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956BB00A1EB0B6F300970566 /* Booking.swift */; };
 		959D7B1A1EC4B268008E51CF /* success.aif in Resources */ = {isa = PBXBuildFile; fileRef = 959D7B191EC4B268008E51CF /* success.aif */; };
 		959D7B221ECA4BC5008E51CF /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959D7B211ECA4BC5008E51CF /* Order.swift */; };
+		95BEBA8D1ECB264C0083F5C6 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95BEBA8C1ECB264C0083F5C6 /* SearchViewController.swift */; };
 		E3B52CC6D1602A4E7304CC37 /* Pods_CrossfitStocznia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA151A015D84FAC5A813931 /* Pods_CrossfitStocznia.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		956BB00A1EB0B6F300970566 /* Booking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Booking.swift; sourceTree = "<group>"; };
 		959D7B191EC4B268008E51CF /* success.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = success.aif; sourceTree = "<group>"; };
 		959D7B211ECA4BC5008E51CF /* Order.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
+		95BEBA8C1ECB264C0083F5C6 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		E58DF327319ACA07E056330F /* Pods-CrossfitStocznia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.release.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.release.xcconfig"; sourceTree = "<group>"; };
 		F19F0A021264137E33D4E02B /* Pods-CrossfitStocznia.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CrossfitStocznia.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CrossfitStocznia/Pods-CrossfitStocznia.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 				88485DEF1DA4FFF0008B0BA4 /* LoginViewController.swift */,
 				88485DFB1DA53109008B0BA4 /* MyReservationsViewController.swift */,
 				8874F9611DA67B9B00669E78 /* ScheduleTableViewController.swift */,
+				95BEBA8C1ECB264C0083F5C6 /* SearchViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				88738BF71DA7B9D0008C8AAC /* ParsedTraining.swift in Sources */,
 				88485DFC1DA53109008B0BA4 /* MyReservationsViewController.swift in Sources */,
 				956BB00B1EB0B6F300970566 /* Booking.swift in Sources */,
+				95BEBA8D1ECB264C0083F5C6 /* SearchViewController.swift in Sources */,
 				881104BB1CECD9E000CE1758 /* Training.swift in Sources */,
 				88AC1EE31DB5288900D5DAB0 /* Section.swift in Sources */,
 				959D7B221ECA4BC5008E51CF /* Order.swift in Sources */,
