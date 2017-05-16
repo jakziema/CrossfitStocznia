@@ -16,6 +16,12 @@ class SearchViewController: UIViewController {
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
+        
+        performSearch(segment: sender.selectedSegmentIndex)
+        
+        
+    }
     
     
     var trainings = [Training]()
@@ -25,7 +31,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 0, right: 0)
+        tableView.contentInset = UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0)
         
         
         tableView.rowHeight = 80
@@ -52,10 +58,18 @@ class SearchViewController: UIViewController {
         
         
         
-        let data = parseJSON(performRequest(getPresentCalendarURL())!)
+        let data = parseJSON(performRequest(getPresentCalendarURL(segment: 0))!)
         sections = parseArraysOfDictionaries(data!)
         
         
+        tableView.reloadData()
+        
+    }
+    
+    func performSearch(segment: Int) {
+        
+        let data = parseJSON(performRequest(getPresentCalendarURL(segment: segment))!)
+        sections = parseArraysOfDictionaries(data!)
         tableView.reloadData()
         
     }
@@ -66,7 +80,9 @@ class SearchViewController: UIViewController {
     }
     
     //getting classes for two upcoming weeks
-    func getPresentCalendarURL()-> String {
+    func getPresentCalendarURL(segment: Int)-> String {
+        
+        
         var calendarURL = ""
         
         let dateFormatter = DateFormatter()
@@ -77,10 +93,22 @@ class SearchViewController: UIViewController {
         let twoWeeksLater = today.addingTimeInterval(14 * 24 * 60 * 60)
         let weekEarlier = today.addingTimeInterval(-7 * 24 * 60 * 60)
         
-        calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=\(dateFormatter.string(from: weekEarlier))&date_next=\(dateFormatter.string(from: twoWeeksLater))&date_start=\(dateFormatter.string(from: today))&date_end=\(dateFormatter.string(from: weekLater))"
+        if (segment == 0) {
+         calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=\(dateFormatter.string(from: weekEarlier))&date_next=\(dateFormatter.string(from: twoWeeksLater))&date_start=\(dateFormatter.string(from: today))&date_end=\(dateFormatter.string(from: weekLater))"
+            
+        } else if(segment == 1) {
+           calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=666&worktime=events&interval=30&date_prev=\(dateFormatter.string(from: weekEarlier))&date_next=\(dateFormatter.string(from: twoWeeksLater))&date_start=\(dateFormatter.string(from: today))&date_end=\(dateFormatter.string(from: weekLater))"
+        } else if(segment == 2) {
+            calendarURL = "http://crossfitstocznia.reservante.pl/xhr/calendars_orders?calendar_id=665&worktime=events&interval=30&date_prev=\(dateFormatter.string(from: weekEarlier))&date_next=\(dateFormatter.string(from: twoWeeksLater))&date_start=\(dateFormatter.string(from: today))&date_end=\(dateFormatter.string(from: weekLater))"
+        }
+        
+        
         
         
         print("PRESENT CALENDAR URL:" + calendarURL)
+        
+        
+        
         return calendarURL
     }
     
