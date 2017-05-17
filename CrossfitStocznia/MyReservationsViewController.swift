@@ -20,7 +20,7 @@ class MyReservationsViewController: UIViewController {
         
         super.viewDidLoad()
         
-        
+        self.edgesForExtendedLayout = []
         
     }
     

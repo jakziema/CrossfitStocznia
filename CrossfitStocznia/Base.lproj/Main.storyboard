@@ -97,8 +97,17 @@
                                     <outlet property="delegate" destination="QMv-yw-Qf5" id="mJV-CB-5BH"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gF-Ge-KBv">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EAa-0p-KTG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Wybierz plan: " id="Rcd-iU-Eby"/>
+                                </items>
+                            </navigationBar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0gF-Ge-KBv">
+                                <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                 <items>
                                     <navigationItem id="tTy-SZ-E5t">
                                         <nil key="title"/>
@@ -120,13 +129,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="0gF-Ge-KBv" firstAttribute="top" secondItem="EAa-0p-KTG" secondAttribute="bottom" id="5Hc-zp-ZQ2"/>
                             <constraint firstItem="23u-fj-GuU" firstAttribute="top" secondItem="IOS-kT-Jf5" secondAttribute="bottom" id="9ru-7G-OyR"/>
-                            <constraint firstAttribute="trailing" secondItem="0gF-Ge-KBv" secondAttribute="trailing" id="C0r-NX-l3Z"/>
+                            <constraint firstItem="EAa-0p-KTG" firstAttribute="top" secondItem="HbU-3x-62F" secondAttribute="bottom" id="AqP-2Y-pns"/>
+                            <constraint firstItem="0gF-Ge-KBv" firstAttribute="leading" secondItem="das-yF-WRw" secondAttribute="leading" id="GtV-1G-zu4"/>
                             <constraint firstAttribute="trailing" secondItem="IOS-kT-Jf5" secondAttribute="trailing" id="RIe-oW-7Ek"/>
                             <constraint firstItem="IOS-kT-Jf5" firstAttribute="top" secondItem="das-yF-WRw" secondAttribute="top" id="ZfD-Bc-0ev"/>
-                            <constraint firstItem="0gF-Ge-KBv" firstAttribute="leading" secondItem="das-yF-WRw" secondAttribute="leading" id="Zz1-uZ-J6T"/>
-                            <constraint firstItem="0gF-Ge-KBv" firstAttribute="top" secondItem="HbU-3x-62F" secondAttribute="bottom" id="fXg-1b-TCL"/>
                             <constraint firstItem="IOS-kT-Jf5" firstAttribute="leading" secondItem="das-yF-WRw" secondAttribute="leading" id="fee-v9-EjF"/>
+                            <constraint firstItem="EAa-0p-KTG" firstAttribute="leading" secondItem="das-yF-WRw" secondAttribute="leading" id="oI0-QL-jKX"/>
+                            <constraint firstAttribute="trailing" secondItem="EAa-0p-KTG" secondAttribute="trailing" id="pn1-KN-Nek"/>
+                            <constraint firstAttribute="trailing" secondItem="0gF-Ge-KBv" secondAttribute="trailing" id="psM-OD-Rvr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1c3-bq-Cj8"/>
@@ -284,13 +296,32 @@
                     <view key="view" contentMode="scaleToFill" id="9pl-lI-Ksv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vdM-YG-l4v">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="ha7-at-Dx8"/>
+                                </constraints>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="Informacje" id="LYO-zu-F1o"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="vdM-YG-l4v" secondAttribute="trailing" id="4XW-P4-gFl"/>
+                            <constraint firstItem="vdM-YG-l4v" firstAttribute="leading" secondItem="9pl-lI-Ksv" secondAttribute="leading" id="VaF-Sc-UbJ"/>
+                            <constraint firstItem="vdM-YG-l4v" firstAttribute="top" secondItem="9pl-lI-Ksv" secondAttribute="top" id="rKn-Pt-tv7"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Informacje" selectedImage="about" id="vmf-0i-i4x"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ww6-7r-iXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="528.79999999999995" y="1198.6506746626687"/>
+            <point key="canvasLocation" x="528.75" y="1197.8873239436621"/>
         </scene>
         <!--Plan Treningowy-->
         <scene sceneID="jjb-eM-2Op">
