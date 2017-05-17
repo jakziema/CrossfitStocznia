@@ -9,6 +9,8 @@
 import UIKit
 import HTMLReader
 import SwiftSoup
+import ChameleonFramework
+
 
 class SearchViewController: UIViewController {
     
@@ -52,9 +54,7 @@ class SearchViewController: UIViewController {
          */
         let hrefs = self.parseHTML(html: self.getMyReservations(fromHTML: EndpointsConstants.MyReservationsEndpoint.baseURL))
         self.bookings = self.getTrainingsIDs(hrefs: hrefs)
-        for id in bookings {
-            print("MOJA REZERWACJA: \(id)")
-        }
+        
         
         
         
@@ -83,7 +83,7 @@ class SearchViewController: UIViewController {
     
     func customizeAppearanceOfTheTopBar() {
         
-        let barTintColor = UIColor(red: 252/255, green: 48/255, blue: 28/255, alpha: 1)
+        let barTintColor = UIColor.flatRed
         //let barTintColor = UIColor.black
         UINavigationBar.appearance().barTintColor = barTintColor
         UINavigationBar.appearance().isTranslucent = false
@@ -191,7 +191,17 @@ class SearchViewController: UIViewController {
                         order.id = id
                         order.user_id = user_id
                         
-                        bookedOrdersArray.append(order)
+                        for booking in bookings {
+                            if booking == order.id {
+                                
+                            print("\(booking) == \(order.id)")
+                             bookedOrdersArray.append(order)
+                                print(order.id)
+                            }
+                        }
+                        
+                        
+                        
                         
                     }
                 }
@@ -201,19 +211,9 @@ class SearchViewController: UIViewController {
             
             
             //let orders_2 = dictionary["orders_2"] as! [[String: Any]]
-            if let cancelledOrders = dictionary["orders_5"] as? [[String:Any]] {
-                for order in cancelledOrders {
-                    if let id = order["id"] as? String, let user_id = order["user_id"] as? String {
-                        
-                        let order = Order()
-                        order.id = id
-                        order.user_id = user_id
-                        
-                        cancelledOrdersArray.append(order)
-                        
-                    }
-                }
-            }
+           
+            
+            
             
             training.dateID = dateID
             training.placesLeft = dictionary["places"] as! Int
@@ -229,8 +229,7 @@ class SearchViewController: UIViewController {
             training.dateAsDateType = fromStringToDate(dateString: dateID)
             
             
-            training.cancelledOrders = cancelledOrdersArray
-            training.orders = bookedOrdersArray
+            
             
             
             
@@ -487,7 +486,13 @@ extension SearchViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: TableViewCellIdentifiers.trainingCell, for: indexPath) as! TrainingTableViewCell
         let training = sections[indexPath.section].sectionTrainings[indexPath.row]
         cell.trainingNameLabel.text = training.titleWithName
-        cell.backgroundColor = UIColor(hexString: training.bgColor)
+        cell.colorLabel.backgroundColor = UIColor(hexString: training.bgColor).flatten()
+        
+        cell.colorLabel.layer.cornerRadius = cell.colorLabel.frame.size.width / 2
+        cell.colorLabel.clipsToBounds = true
+        
+        cell.shortcutLabel.text = String(training.title[training.title.startIndex])
+        
         cell.hourLabel.text = training.hour
         cell.placesLeftLabel.text = "Ilość miejsc: \(training.placesLeft)"
         cell.dateLabel.text = "Data: " + training.date

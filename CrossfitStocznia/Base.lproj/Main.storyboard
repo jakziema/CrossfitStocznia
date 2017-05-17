@@ -273,7 +273,7 @@
             </objects>
             <point key="canvasLocation" x="3309" y="432"/>
         </scene>
-        <!--My Reservations View Controller-->
+        <!--Informacje-->
         <scene sceneID="gaG-vl-xSq">
             <objects>
                 <viewController id="Obo-I5-UQS" customClass="MyReservationsViewController" customModule="CrossfitStocznia" customModuleProvider="target" sceneMemberID="viewController">
@@ -286,18 +286,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" systemItem="search" id="vmf-0i-i4x"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Informacje" selectedImage="about" id="vmf-0i-i4x"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ww6-7r-iXK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="528.79999999999995" y="1198.6506746626687"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Plan Treningowy-->
         <scene sceneID="jjb-eM-2Op">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T5I-HO-FgF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="1GU-jO-Jq0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="contacts" id="aNu-E3-fp1"/>
+                    <tabBarItem key="tabBarItem" title="Plan Treningowy" selectedImage="calendar" id="aNu-E3-fp1"/>
                     <toolbarItems/>
                     <nil key="simulatedStatusBarMetrics"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -316,6 +316,8 @@
     </scenes>
     <resources>
         <image name="CloseButton" width="15" height="15"/>
+        <image name="about" width="25" height="25"/>
+        <image name="calendar" width="25" height="25"/>
         <image name="logo-red.png" width="256" height="150"/>
         <image name="stocznia.jpg" width="1619" height="1080"/>
     </resources>

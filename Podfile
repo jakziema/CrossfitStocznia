@@ -11,6 +11,8 @@ target 'CrossfitStocznia' do
    pod 'Alamofire', '~> 4.0'
    pod "SwiftSoup"
    pod 'Gloss', '~> 1.2'
+   pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
+
 
 
 end

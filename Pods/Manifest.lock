@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.4.0)
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - Gloss (1.2.4)
   - HTMLReader (2.0.5)
   - SwiftKeychainWrapper (3.0.1)
@@ -7,18 +10,29 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - Gloss (~> 1.2)
   - HTMLReader (~> 2.0)
   - SwiftKeychainWrapper (~> 3.0)
   - SwiftSoup
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   Gloss: 4e036074610fdb993abcb958ebcd7332588e2333
   HTMLReader: 979c66cd2b23c67e0b45a4b3e0ab8ce933a3e71a
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftSoup: 09165cc0d03c1ecdaf944716b7996ffeabae32f6
 
-PODFILE CHECKSUM: f5c005705954722ceabf769395f93f349cc5d959
+PODFILE CHECKSUM: 4655f71bd72ae488e5b7224e50d46c11dbf2799e
 
 COCOAPODS: 1.2.1
